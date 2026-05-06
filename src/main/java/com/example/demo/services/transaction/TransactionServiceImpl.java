@@ -1,6 +1,8 @@
 package com.example.demo.services.transaction;
 
+
 import com.example.demo.dto.transaction.TransactionDTO;
+import com.example.demo.dto.transaction.TransactionDTOAdmin;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.transaction.StatusTransaction;
 import com.example.demo.models.transaction.Transaction;
@@ -9,9 +11,6 @@ import com.example.demo.models.user.User;
 import com.example.demo.repositories.AccountRepository;
 import com.example.demo.repositories.TransactionRepository;
 import com.example.demo.repositories.UserRepository;
-import com.example.demo.services.account.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,17 +20,17 @@ import org.springframework.web.server.ResponseStatusException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
-    @Autowired
-    private TransactionRepository transactionRepository;
-    @Autowired
-    private AccountRepository accountRepository;
-    @Autowired
-    private UserRepository userRepository;
+
+    private final TransactionRepository transactionRepository;
+
+    private final AccountRepository accountRepository;
+
+    private final UserRepository userRepository;
+
 
     public TransactionServiceImpl(TransactionRepository transactionRepository, AccountRepository accountRepository,  UserRepository userRepository) {
         this.transactionRepository = transactionRepository;
@@ -162,16 +161,15 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Transactional
     @Override
-    public void hideTransaction(Long transaction_id) {
+    public TransactionDTO hideTransaction(Long transaction_id) {
         Transaction transaction = transactionRepository.findById(transaction_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Transaction not found"));
-
         transaction.setHidden(true);
-
+        return transaction.toDTO();
     }
 
     @Transactional
     @Override
-    public void cancelTransaction(Long transactionId) {
+    public TransactionDTOAdmin cancelTransaction(Long transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Transaction is not found"));
 
@@ -185,17 +183,8 @@ public class TransactionServiceImpl implements TransactionService {
 
         transaction.setStatusTransaction(StatusTransaction.CANCELLED);
         transactionRepository.save(transaction);
+        return transaction.toDTOAdmin();
 
-    }
-
-    public List<TransactionDTO> getTransactionDTOs(List<Transaction> transactions){
-        List<TransactionDTO> transactionDTOs = new ArrayList<>();
-        for(Transaction transaction : transactions){
-            if(!transaction.getHidden()){
-                transactionDTOs.add(transaction.toDTO());
-            }
-        }
-        return transactionDTOs;
     }
 
 }
