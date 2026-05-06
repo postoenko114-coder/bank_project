@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -29,6 +30,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private RoleUser roleUser;
 
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,  cascade = CascadeType.ALL,  orphanRemoval = true)
@@ -46,6 +48,11 @@ public class User implements UserDetails {
     private LocalDateTime createdAt;
 
     public User() {}
+
+    public User(Long id, String username){
+        this.id = id;
+        this.username = username;
+    }
 
     public User(String username, String password, String email, RoleUser roleUser) {
         this.username = username;
@@ -127,7 +134,7 @@ public class User implements UserDetails {
     public String getUsername() {return email;}
 
     //For business-logic
-    public String getRealUsername() {return this.username;}
+    public String getRealUsername() {return username;}
 
     @Override
     public boolean isAccountNonExpired() {return UserDetails.super.isAccountNonExpired();}
