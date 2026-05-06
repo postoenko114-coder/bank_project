@@ -3,10 +3,11 @@ package com.example.demo.controllers.client;
 import com.example.demo.dto.ReservationDTO;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
 import com.example.demo.services.reservation.ReservationService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/{userId}/reservations")
+@IsOwner
 public class ReservationController {
 
     private final ReservationService reservationService;
@@ -39,6 +41,7 @@ public class ReservationController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ReservationDTO createReservation(@PathVariable Long userId, @RequestParam LocalDateTime startReservation, @RequestParam String serviceName, @RequestParam String branchName) {
         BankService bankService = bankServiceService.findServiceByName(serviceName).get(0);
         BankBranch bankBranch = bankBranchService.findBranchByName(branchName);
@@ -46,9 +49,9 @@ public class ReservationController {
     }
 
     @PutMapping("/{reservationId}/cancel")
-    public ResponseEntity<String> cancelReservation(@PathVariable Long reservationId) {
-        reservationService.cancelReservation(reservationId);
-        return ResponseEntity.ok("Reservation has been cancelled");
+    public ReservationDTO cancelReservation(@PathVariable Long reservationId) {
+        ReservationDTO reservationDTO = reservationService.cancelReservation(reservationId);
+        return reservationDTO;
     }
 
 }
