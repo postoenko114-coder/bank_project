@@ -38,7 +38,7 @@ public class Account {
     @OneToMany(mappedBy = "accountFrom",  cascade = CascadeType.ALL,  orphanRemoval = true)
     private List<Transaction> transactionsFrom;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "account")
     private Card card;
 
     private LocalDateTime createdAt;
