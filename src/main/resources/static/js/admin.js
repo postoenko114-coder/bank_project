@@ -856,9 +856,15 @@ async function performAvailabilityCheck() {
         });
 
         if (response.ok) {
-            const text = await response.text();
-            resDiv.innerHTML = `<i class="fa-solid fa-check-circle me-2"></i>Available! <br><span class="small fw-normal">${text}</span>`;
-            resDiv.className = "mt-3 text-center text-success fw-bold";
+            // Backend returns AvailabilityResponse { isAvailable: boolean, message: string }
+            const data = await response.json();
+            if (data.isAvailable) {
+                resDiv.innerHTML = `<i class="fa-solid fa-check-circle me-2"></i>Available! <br><span class="small fw-normal">${data.message}</span>`;
+                resDiv.className = "mt-3 text-center text-success fw-bold";
+            } else {
+                resDiv.innerHTML = `<i class="fa-solid fa-times-circle me-2"></i>Not Available <br><span class="small fw-normal">${data.message}</span>`;
+                resDiv.className = "mt-3 text-center text-danger fw-bold";
+            }
         } else {
             if (response.status === 401 || response.status === 403) {
                 alert("Session expired. Please login again.");
@@ -866,7 +872,8 @@ async function performAvailabilityCheck() {
                 window.location.href = "login.html";
                 return;
             }
-            resDiv.innerHTML = `<i class="fa-solid fa-times-circle me-2"></i>Not Available`;
+            const errData = await response.json().catch(() => ({}));
+            resDiv.innerHTML = `<i class="fa-solid fa-times-circle me-2"></i>Not Available <br><span class="small fw-normal">${errData.message || ''}</span>`;
             resDiv.className = "mt-3 text-center text-danger fw-bold";
         }
     } catch (e) {
@@ -916,9 +923,9 @@ async function fetchGlobalReservations() {
         let act = '-';
         const btnComplete = `<button class="btn-icon text-success" onclick="adminResAction(${r.id}, 'complete')" title="Complete"><i class="fa-solid fa-check"></i></button>`;
         const btnCancel = `<button class="btn-icon text-danger" onclick="adminResAction(${r.id}, 'cancel')" title="Cancel"><i class="fa-solid fa-xmark"></i></button>`;
-        const btnActivate = `<button class="btn-icon text-warning" onclick="adminResAction(${r.id}, 'activate')" title="Activate"><i class="fa-solid fa-unlock"></i></button>`;
 
-        if (r.statusReservation === 'PENDING') act = `${btnComplete} ${btnActivate} ${btnCancel}`;
+        // No activateReservation endpoint exists on the backend
+        if (r.statusReservation === 'PENDING') act = `${btnComplete} ${btnCancel}`;
         else if (r.statusReservation === 'ACTIVE') act = `${btnComplete} ${btnCancel}`;
 
         return `<tr>
@@ -935,7 +942,9 @@ async function fetchGlobalReservations() {
 }
 
 async function adminResAction(id, action) {
-    let ep = action === 'cancel' ? 'cancelReservation' : (action === 'activate' ? 'activateReservation' : 'completeReservation');
+    // AdminReservationController only has: cancelReservation and completeReservation
+    // There is no activateReservation endpoint on the backend
+    let ep = action === 'cancel' ? 'cancelReservation' : 'completeReservation';
     await adminFetch(`${API_BASE}/reservations/${id}/${ep}`, { method: 'POST' });
     fetchGlobalReservations();
 }

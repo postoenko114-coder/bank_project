@@ -291,10 +291,13 @@ async function sendSupport() {
     if (!email || !msg) return alert("Please fill in all fields");
 
     try {
+        // SupportDTO expects: { userEmail, subject, message }
+        // Do NOT send createdAt — server sets it via LocalDateTime.now()
+        // Sending new Date().toISOString() would fail: LocalDateTime can't parse "Z" timezone suffix
         await fetch(`${API_BASE}/support`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userEmail: email, subject: sub, message: msg, createdAt: new Date().toISOString() })
+            body: JSON.stringify({ userEmail: email, subject: sub, message: msg })
         });
         alert("Message sent successfully!");
         bootstrap.Modal.getInstance(document.getElementById('supportModal')).hide();

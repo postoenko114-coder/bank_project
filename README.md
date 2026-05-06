@@ -1,4 +1,4 @@
-Graduation project: "Bank Emulation"
+Bank Emulation
 This application is a REST API service with a web interface for managing bank accounts, transactions, and users.
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
@@ -23,10 +23,12 @@ This application is a REST API service with a web interface for managing bank ac
 ## 🛠 Tech Stack
 
 * **Core:** Java 17, Spring Boot 3.4.1
-* **Database:** MySQL, Hibernate (JPA)
-* **Security:** Spring Security 6, OAuth2 Client, JWT (jjwt)
+* **Database:** PostgresSQL, Hibernate (JPA)
+* **Security:** Spring Security 6, OAuth2 Client, JWT 
 * **Frontend:** Thymeleaf, HTML5, CSS3, JavaScript
-* **Tools:** Docker & Docker Compose, Maven, Lombok
+* **Tools:** Docker & Docker Compose, Maven
 * **Documentation:** SpringDoc OpenAPI (Swagger)
+* **Unit Tests:** Mockito, JUnit5
+* **Integrations Tests:** Rest Assured, TestContainers
 
   👤 Author: Postoienko Oleksandr

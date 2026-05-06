@@ -16,6 +16,7 @@ window.userCards = [];
 window.userTransactions = [];
 window.userNotifications = [];
 window.currentOperation = 'TRANSFER';
+window.readNotificationIds = new Set(); // local tracking since NotificationDTO has no statusNotification
 
 // =========================================================
 // 1. INITIALIZATION & AUTH CHECK
@@ -149,12 +150,9 @@ async function loadUserInfo() {
         const avatarContainer = document.getElementById('user-avatar-container');
 
         if (avatarContainer) {
-            if (user.photoUrl) {
-                avatarContainer.innerHTML = `<img src="${user.photoUrl}" style="width: 100%; height: 100%; object-fit: cover;">`;
-            } else {
-                const letter = (user.username || "U").charAt(0).toUpperCase();
-                avatarContainer.innerHTML = `<span style="font-weight:700; font-size: 1.2rem;">${letter}</span>`;
-            }
+            // UserDTO has no photoUrl field — always show initials
+            const letter = (user.username || "U").charAt(0).toUpperCase();
+            avatarContainer.innerHTML = `<span style="font-weight:700; font-size: 1.2rem;">${letter}</span>`;
         }
         return true;
     } catch (e) {
@@ -546,9 +544,25 @@ async function processOperation() {
             const toNum = document.getElementById('op-to').value;
             const desc = document.getElementById('op-desc').value;
             if (!toNum) throw new Error("Recipient required");
-            params.append('accountToNumber', toNum);
-            params.append('description', desc || 'Transfer');
-            url = `${API_BASE}/${currentUserId}/accounts/${accId}/transfer?${params.toString()}`;
+            // Backend expects @RequestBody TransferDTO { accountTo, amount, description }
+            url = `${API_BASE}/${currentUserId}/accounts/${accId}/transfer`;
+            const response = await authFetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    accountTo: toNum,
+                    amount: parseFloat(amount),
+                    description: desc || 'Transfer'
+                })
+            });
+            if (response && response.ok) {
+                alert("Operation Successful!");
+                loadPage('accounts');
+                updateNotificationBadge();
+            } else {
+                const err = await response.json().catch(() => ({}));
+                alert("Error: " + (err.message || "Failed"));
+            }
+            return;
         } else if (type === 'DEPOSIT') {
             url = `${API_BASE}/${currentUserId}/accounts/${accId}/deposit?${params.toString()}`;
         } else if (type === 'WITHDRAWAL') {
@@ -721,7 +735,9 @@ async function loadNotifications(page) {
             if (n.typeNotification === 'DEPOSIT') { icon = 'fa-arrow-down'; color = 'text-success'; }
             else if (n.typeNotification === 'WITHDRAWAL') { icon = 'fa-arrow-up'; color = 'text-danger'; }
 
-            const isRead = n.statusNotification === 'READ';
+            // NotificationDTO does NOT have statusNotification (only NotificationDTOAdmin does).
+            // We track read state locally in window.readNotificationIds set.
+            const isRead = window.readNotificationIds && window.readNotificationIds.has(n.id);
             const fw = isRead ? '' : 'fw-bold';
             const newBadge = !isRead
                 ? `<span class="badge bg-danger rounded-pill ms-2" style="font-size: 0.7rem;">NEW</span>`
@@ -774,7 +790,7 @@ async function openNotificationDetails(index) {
 
     document.getElementById('modal-notif-id').value = n.id;
 
-    if (n.id && n.statusNotification !== 'READ') {
+    if (n.id && !isRead) {
         const navItem = document.querySelector("a[onclick*='notifications']");
         const menuBadge = navItem ? navItem.querySelector('.badge') : null;
 
@@ -796,7 +812,9 @@ async function openNotificationDetails(index) {
             if (msgText) msgText.classList.remove('fw-bold');
         }
 
-        n.statusNotification = 'READ';
+        n.statusNotification = 'READ'; // local cached update (field doesn't exist in NotificationDTO but harmless)
+        if (!window.readNotificationIds) window.readNotificationIds = new Set();
+        window.readNotificationIds.add(n.id);
         try {
             await authFetch(`${API_BASE}/${currentUserId}/notifications/${n.id}`);
         } catch (e) { console.error("Error syncing read status:", e); }
@@ -966,12 +984,22 @@ async function cancelReservation(id) {
 
 async function loadProfile() {
     try {
-        const response = await authFetch(`${API_BASE}/users/${currentUserId}`);
-        if (!response) return;
-        const user = await response.json();
+        // GET /api/v1/users/{userId} returns UserDTOForClient (no hasPassword field)
+        // GET /api/auth/me returns UserDTO which has isHasPassword()
+        // We need both: profile data + hasPassword flag
+        const [profileResponse, meResponse] = await Promise.all([
+            authFetch(`${API_BASE}/users/${currentUserId}`),
+            authFetch('/api/auth/me')
+        ]);
+        if (!profileResponse) return;
+        const user = await profileResponse.json();
+        // UserDTO from /api/auth/me has hasPassword (derived from isHasPassword() getter)
+        const meUser = meResponse && meResponse.ok ? await meResponse.json() : null;
+        const hasPassword = meUser ? meUser.hasPassword : true; // default true (show change password)
         const container = document.getElementById('content-area');
 
-        const changePassButton = user.hasPassword
+        // Use hasPassword from UserDTO (/api/auth/me), not UserDTOForClient
+        const changePassButton = hasPassword
             ? `<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Change Password</button>`
             : `<button class="btn btn-outline-secondary" onclick="alert('You are signed in via Google. Please manage your password through your provider settings.')">Change Password</button>`;
 

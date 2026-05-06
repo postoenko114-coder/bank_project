@@ -41,9 +41,12 @@ async function handleLogin(event) {
     btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Signing in...';
 
     try {
-        const response = await fetch(`/api/auth/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
+        // Backend expects @RequestBody UserLogin { username, password }
+        // The "username" field is actually used for email lookup on the backend
+        const response = await fetch(`/api/auth/login`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: email, password: password })
         });
 
         if (response.ok) {
