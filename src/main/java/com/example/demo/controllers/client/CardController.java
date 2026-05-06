@@ -1,15 +1,17 @@
 package com.example.demo.controllers.client;
 
 import com.example.demo.dto.CardDTO;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.card.CardService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/{userId}/cards")
+@IsOwner
 public class CardController {
 
     private final CardService cardService;
@@ -33,14 +35,15 @@ public class CardController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public CardDTO createCard(@RequestParam String accountNumber, @RequestParam String typeCard) {
         return cardService.createCard(accountService.getAccountByNumber(accountNumber).getId(), typeCard);
     }
 
     @PutMapping("/{cardId}/closeCard")
-    public ResponseEntity<String> closeCard(@PathVariable Long cardId) {
-        cardService.closeCard(cardId);
-        return ResponseEntity.ok("Card Closed");
+    public CardDTO closeCard(@PathVariable Long cardId) {
+        CardDTO cardDTO = cardService.closeCard(cardId);
+        return cardDTO;
     }
 
 }

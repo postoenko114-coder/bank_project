@@ -3,12 +3,14 @@ package com.example.demo.controllers.admin;
 import com.example.demo.dto.ReservationDTO;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
 import com.example.demo.services.reservation.ReservationService;
 import com.example.demo.services.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,6 +18,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/admin/reservations")
+@PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminReservationController {
 
     private final ReservationService reservationService;
@@ -61,18 +65,21 @@ public class AdminReservationController {
     }
 
     @PostMapping("/{reservationId}/cancelReservation")
-    public ResponseEntity<String> cancelReservation( @PathVariable Long reservationId) {
-        reservationService.cancelReservation(reservationId);
-        return ResponseEntity.ok("Reservation cancelled");
+    @ResponseStatus(HttpStatus.CREATED)
+    public ReservationDTO cancelReservation( @PathVariable Long reservationId) {
+        ReservationDTO reservationDTO = reservationService.cancelReservation(reservationId);
+        return reservationDTO;
     }
 
     @PostMapping("/{reservationId}/completeReservation")
-    public ResponseEntity<String> markAsCompleteReservation(@PathVariable Long reservationId) {
-        reservationService.completeReservation(reservationId);
-        return ResponseEntity.ok("Reservation completed");
+    @ResponseStatus(HttpStatus.CREATED)
+    public ReservationDTO markAsCompleteReservation(@PathVariable Long reservationId) {
+        ReservationDTO reservationDTO = reservationService.completeReservation(reservationId);
+        return reservationDTO;
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ReservationDTO createReservation(@RequestParam String username, @RequestParam LocalDateTime startReservation, @RequestParam String serviceName, @RequestParam String branchName) {
         BankService bankService = bankServiceService.findServiceByName(serviceName).get(0);
         BankBranch bankBranch = bankBranchService.findBranchByName(branchName);

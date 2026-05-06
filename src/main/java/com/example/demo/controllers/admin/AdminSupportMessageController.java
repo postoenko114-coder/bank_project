@@ -4,19 +4,21 @@ import com.example.demo.dto.support.SupportDTO;
 import com.example.demo.dto.support.SupportReplyDTO;
 import com.example.demo.models.notification.TypeNotification;
 import com.example.demo.models.user.User;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.EmailService;
 import com.example.demo.services.notification.NotificationService;
 import com.example.demo.services.supportMessage.SupportMessageService;
 import com.example.demo.services.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/admin/supportMessages")
+@IsOwner
 public class AdminSupportMessageController {
 
     private final SupportMessageService supportMessageService;
@@ -52,12 +54,13 @@ public class AdminSupportMessageController {
     }
 
     @PostMapping("/{supportMessageId}/reply")
-    public ResponseEntity<String> replyToMessage(@PathVariable Long supportMessageId, @RequestBody SupportReplyDTO replyDTO) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public SupportDTO replyToMessage(@PathVariable Long supportMessageId, @RequestBody SupportReplyDTO replyDTO) throws ResponseStatusException {
         SupportDTO originalMsg = supportMessageService.getSupportMessageById(supportMessageId);
 
         String targetEmail = originalMsg.getUserEmail();
         if (targetEmail == null || targetEmail.isEmpty()) {
-            return ResponseEntity.badRequest().body("No email found in the support message");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Email not found");
         }
 
         String replyText = "RE: Support Request (ID: " + supportMessageId + ")\n\n" + replyDTO.getReplyText();
@@ -65,15 +68,15 @@ public class AdminSupportMessageController {
         if (userService.checkEmail(targetEmail)) {
             User user = userService.findUserByEmail(targetEmail);
             notificationService.sendNotificationToClient(user, notificationService.createNotification(user, TypeNotification.SUPPORT, replyText));
-            return ResponseEntity.ok("User found. Reply sent to Dashboard Notifications.");
+            return originalMsg;
         } else {
             try {
                 emailService.sendSimpleEmail(targetEmail, "Support Reply - MyBank", replyText);
-                return ResponseEntity.ok("User not found in DB. Reply sent via Email.");
             } catch (Exception e) {
-                return ResponseEntity.internalServerError().body("Error sending email: " + e.getMessage());
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Something went wrong");
             }
         }
+        return originalMsg;
     }
 
 }

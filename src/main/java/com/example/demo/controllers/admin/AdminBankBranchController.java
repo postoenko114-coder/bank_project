@@ -1,8 +1,9 @@
 package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.BankBranchDTO;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.bankBranch.BankBranchService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/branches")
 @PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminBankBranchController {
 
-    private final BankBranchService bankBranchService;
+    private final BankBranchService bankBranchService ;
 
     public AdminBankBranchController(BankBranchService bankBranchService) {
         this.bankBranchService = bankBranchService;
@@ -30,8 +32,10 @@ public class AdminBankBranchController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public BankBranchDTO createBankBranch(@RequestBody BankBranchDTO bankBranchDTO) {
-        return bankBranchService.addBankBranch(bankBranchDTO, bankBranchDTO.getLocationDTO());
+        BankBranchDTO newBranch = bankBranchService.addBankBranch(bankBranchDTO, bankBranchDTO.getLocationDTO());
+        return newBranch;
     }
 
     @PutMapping("/{bankBranchId}")
@@ -40,21 +44,20 @@ public class AdminBankBranchController {
     }
 
     @PutMapping("/{bankBranchId}/services")
-    public ResponseEntity<String> addServiceToBranch(@PathVariable Long bankBranchId, @RequestParam Long serviceId) {
-        bankBranchService.addBankServiceToBranch(bankBranchId, serviceId);
-        return ResponseEntity.ok("Service added to branch successfully");
+    public BankBranchDTO addServiceToBranch(@PathVariable Long bankBranchId, @RequestParam Long serviceId) {
+        return bankBranchService.addBankServiceToBranch(bankBranchId, serviceId);
     }
 
     @DeleteMapping("/{bankBranchId}/services")
-    public ResponseEntity<String> deleteServiceFromBranch(@PathVariable Long bankBranchId, @RequestParam Long serviceId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteServiceFromBranch(@PathVariable Long bankBranchId, @RequestParam Long serviceId) {
         bankBranchService.deleteBankServiceFromBranch(bankBranchId, serviceId);
-        return ResponseEntity.ok("Service deleted from branch successfully");
     }
 
     @DeleteMapping("/{bankBranchId}")
-    public ResponseEntity<String> deleteBankBranch(@PathVariable Long bankBranchId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBankBranch(@PathVariable Long bankBranchId) {
         bankBranchService.deleteBankBranch(bankBranchId);
-        return ResponseEntity.ok("Branch deleted successfully");
     }
 
 }

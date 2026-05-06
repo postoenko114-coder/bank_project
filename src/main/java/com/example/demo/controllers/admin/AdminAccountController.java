@@ -1,8 +1,9 @@
 package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.AccountDTO;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.account.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/accounts")
 @PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminAccountController {
 
     private final AccountService accountService;
@@ -35,8 +37,10 @@ public class AdminAccountController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public AccountDTO createAccount(@PathVariable Long userId, @RequestParam String currency) {
-        return accountService.addAccount(userId, currency);
+        AccountDTO newAccountDTO = accountService.addAccount(userId, currency);
+        return newAccountDTO;
     }
 
     @PutMapping("/{accountId}/closeAccount")
@@ -55,9 +59,9 @@ public class AdminAccountController {
     }
 
     @DeleteMapping("/{accountId}")
-    public ResponseEntity<String> deleteAccount(@PathVariable Long accountId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteAccount(@PathVariable Long accountId) {
         accountService.removeAccount(accountId);
-        return  ResponseEntity.ok("Account deleted");
     }
 
 }

@@ -1,12 +1,20 @@
 package com.example.demo.controllers.client;
 
 import com.example.demo.dto.user.UserDTO;
+import com.example.demo.dto.user.UserDTOForClient;
+import com.example.demo.models.user.User;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
+@IsOwner
+@Validated
 public class UserController {
 
     private final UserService userService;
@@ -16,14 +24,15 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public UserDTO getUserProfile(@PathVariable Long userId) {
-        return userService.getUserById(userId).toDTO();
+    public UserDTOForClient getUserProfile(@PathVariable Long userId) {
+        User user = userService.getUserById(userId);
+        return new UserDTOForClient(user.getId(), user.getRealUsername(), user.getEmail(), user.getCreatedAt());
     }
 
     @PutMapping("/{userId}")
-    public UserDTO editUserProfile(@PathVariable Long userId, @RequestBody UserDTO userDTO) {
+    public UserDTOForClient editUserProfile(@PathVariable Long userId, @Valid @RequestBody UserDTO userDTO) {
         userService.updateUser(userId, userDTO);
-        return userDTO;
+        return new UserDTOForClient(userDTO.getId(), userDTO.getUsername(), userDTO.getEmail(), userDTO.getCreatedAt());
     }
 
     @PutMapping("/{userId}/changePassword")
@@ -32,7 +41,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable Long userId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@NotNull @PathVariable Long userId) {
         userService.deleteUserById(userId);
     }
 

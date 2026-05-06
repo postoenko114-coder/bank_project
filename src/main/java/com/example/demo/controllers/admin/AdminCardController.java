@@ -1,9 +1,10 @@
 package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.CardDTO;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.card.CardService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/cards")
 @PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminCardController {
 
     private final CardService cardService;
@@ -39,32 +41,34 @@ public class AdminCardController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public CardDTO createUserCard(@RequestParam String accountNumber, @RequestParam String typeCard) {
-        return cardService.createCard(accountService.getAccountByNumber(accountNumber).getId(), typeCard);
+        CardDTO newCard =  cardService.createCard(accountService.getAccountByNumber(accountNumber).getId(), typeCard);
+        return newCard;
     }
 
     @PutMapping("/{cardId}/blockCard")
-    public ResponseEntity<String> blockUserCard(@PathVariable Long cardId) {
-        cardService.blockCard(cardId);
-        return ResponseEntity.ok("Card has been blocked");
+    public ResponseEntity<CardDTO> blockUserCard(@PathVariable Long cardId) {
+        CardDTO cardDTO = cardService.blockCard(cardId);
+        return ResponseEntity.ok(cardDTO);
     }
 
     @PutMapping("/{cardId}/activateCard")
-    public ResponseEntity<String> activateUserCard(@PathVariable Long cardId) {
-        cardService.activateCard(cardId);
-        return ResponseEntity.ok("Card has been unblocked");
+    public ResponseEntity<CardDTO> activateUserCard(@PathVariable Long cardId) {
+        CardDTO cardDTO = cardService.activateCard(cardId);
+        return ResponseEntity.ok(cardDTO);
     }
 
     @PutMapping("/{cardId}/changeTypeCard")
-    public ResponseEntity<String> changeTypeCard(@PathVariable Long cardId) {
-        cardService.changeTypeCard(cardId);
-        return ResponseEntity.ok("Type Card has been changed");
+    public ResponseEntity<CardDTO> changeTypeCard(@PathVariable Long cardId) {
+        CardDTO cardDTO = cardService.changeTypeCard(cardId);
+        return ResponseEntity.ok(cardDTO);
     }
 
     @DeleteMapping("/{cardId}")
-    public ResponseEntity<String> deleteUserCard(@PathVariable Long cardId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUserCard(@PathVariable Long cardId) {
         cardService.deleteCard(cardId);
-        return ResponseEntity.ok("Card has been deleted");
     }
 
 }

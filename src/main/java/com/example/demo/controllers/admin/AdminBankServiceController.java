@@ -1,11 +1,13 @@
 package com.example.demo.controllers.admin;
 
+import com.example.demo.dto.AvailabilityResponse;
 import com.example.demo.dto.BankServiceDTO;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/services")
 @PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminBankServiceController {
 
     private final BankServiceService bankServiceService;
@@ -49,30 +52,31 @@ public class AdminBankServiceController {
     }
 
     @GetMapping("/{bankServiceId}/availability")
-    public ResponseEntity<String> getAvailabilityServiceOnDate(@PathVariable Long bankServiceId, @RequestParam String branchName, @RequestParam LocalDate date) {
+    public AvailabilityResponse getAvailabilityServiceOnDate(@PathVariable Long bankServiceId, @RequestParam String branchName, @RequestParam LocalDate date) {
         BankBranch bankBranch = bankBranchService.findBranchByName(branchName);
         if (!bankServiceService.getAvailabilityServiceByDate(bankBranch.getId(), bankServiceId, date)) {
-            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+            return new AvailabilityResponse(false, "Service not available");
         }
-        return ResponseEntity.ok("Service available on date " + date.toString());
+        return new AvailabilityResponse(true, "Service available");
     }
 
     @PostMapping
-    public ResponseEntity<String> addBankService(@RequestBody BankServiceDTO bankServiceDTO) {
-        bankServiceService.addService(bankServiceDTO);
-        return ResponseEntity.ok("Bank service was created successfully");
+    @ResponseStatus(HttpStatus.CREATED)
+    public BankServiceDTO addBankService(@RequestBody BankServiceDTO bankServiceDTO) {
+        BankServiceDTO newBankService = bankServiceService.addService(bankServiceDTO);
+        return newBankService;
     }
 
     @PutMapping("/{bankServiceId}/update")
-    public ResponseEntity<String> editService(@PathVariable Long bankServiceId, @RequestBody BankServiceDTO bankServiceDTO) {
+    public BankServiceDTO editService(@PathVariable Long bankServiceId, @RequestBody BankServiceDTO bankServiceDTO) {
         bankServiceService.updateService(bankServiceId, bankServiceDTO);
-        return ResponseEntity.ok("Changes was saved successfully");
+        return bankServiceDTO;
     }
 
     @DeleteMapping("/{bankServiceId}")
-    public ResponseEntity<String> deleteService(@PathVariable Long bankServiceId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteService(@PathVariable Long bankServiceId) {
         bankServiceService.deleteService(bankServiceId);
-        return ResponseEntity.ok("Service was deleted successfully");
     }
 
 }

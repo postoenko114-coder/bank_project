@@ -4,8 +4,9 @@ import com.example.demo.dto.user.UserCreateDTO;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserDTOAdmin;
 import com.example.demo.models.user.User;
+import com.example.demo.security.IsOwner;
 import com.example.demo.services.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/users")
 @PreAuthorize("hasRole('ADMIN')")
+@IsOwner
 public class AdminUserController {
 
     private final UserService userService;
@@ -38,6 +40,7 @@ public class AdminUserController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public UserDTOAdmin createUser(@RequestBody UserCreateDTO createDTO) {
         return userService.createUser(createDTO);
     }
@@ -55,9 +58,9 @@ public class AdminUserController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable Long userId) {
         userService.deleteUserById(userId);
-        return ResponseEntity.ok("User has been deleted");
     }
 
 }
