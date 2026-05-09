@@ -26,9 +26,9 @@ This application is a REST API service with a web interface for managing bank ac
 * **Database:** PostgresSQL, Hibernate (JPA)
 * **Security:** Spring Security 6, OAuth2 Client, JWT 
 * **Frontend:** Thymeleaf, HTML5, CSS3, JavaScript
-* **Tools:** Docker & Docker Compose, Maven
+* **Tools:** Docker, Maven
 * **Documentation:** SpringDoc OpenAPI (Swagger)
 * **Unit Tests:** Mockito, JUnit5
-* **Integrations Tests:** Rest Assured, TestContainers
+* **Integrations Tests:** TestContainers
 
   👤 Author: Postoienko Oleksandr
