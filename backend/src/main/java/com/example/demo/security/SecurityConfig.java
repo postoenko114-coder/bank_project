@@ -56,11 +56,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/js/**", "/images/**", "/fonts/**").permitAll()
                         .requestMatchers("/api/auth/**", "/api/v1/branches/**", "/api/v1/services/**", "/api/v1/support**").permitAll()
                         .requestMatchers("/login/oauth2/code/**").permitAll()
                         .requestMatchers("/oauth2/**").permitAll()
-                        .requestMatchers("/", "/index.html", "/login.html", "/register.html", "/services.html", "/branches.html", "/dashboard.html", "admin.html", "/error").permitAll()
                         .anyRequest().authenticated()
                 )
 
