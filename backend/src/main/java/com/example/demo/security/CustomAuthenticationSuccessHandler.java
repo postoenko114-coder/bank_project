@@ -47,7 +47,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         String jwtToken = jwtService.generateToken(user);
 
-        String targetUrl = UriComponentsBuilder.fromUriString("/oauth2/redirect.html")
+        String targetUrl = UriComponentsBuilder.fromUriString("http://localhost:5500/oauth2/redirect.html")
                 .queryParam("token", jwtToken)
                 .build().toUriString();
 
