@@ -141,7 +141,7 @@ function loadPage(pageName, element) {
 
 async function loadUserInfo() {
     try {
-        const response = await authFetch('/api/auth/me');
+        const response = await authFetch('http://localhost:8080/api/auth/me');
         if (!response || !response.ok) return false;
         const user = await response.json();
         currentUserId = user.id;
@@ -989,7 +989,7 @@ async function loadProfile() {
         // We need both: profile data + hasPassword flag
         const [profileResponse, meResponse] = await Promise.all([
             authFetch(`${API_BASE}/users/${currentUserId}`),
-            authFetch('/api/auth/me')
+            authFetch('http://localhost:8080/api/auth/me')
         ]);
         if (!profileResponse) return;
         const user = await profileResponse.json();
@@ -1141,7 +1141,7 @@ async function sendDashboardSupport() {
         const headers = { 'Content-Type': 'application/json' };
         if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        await fetch(`/api/v1/support`, {
+        await fetch(`http://localhost:8080/api/v1/support`, {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({ userEmail: "", subject: sub, message: msg })

@@ -17,7 +17,7 @@ function checkUrlForTokenOrError() {
         sessionStorage.setItem('accessToken', token);
 
         window.history.replaceState({}, document.title, window.location.pathname);
-        window.location.href = 'dashboard.html';
+        window.location.href = './dashboard.html';
         return;
     }
 
@@ -50,9 +50,24 @@ async function handleLogin(event) {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            sessionStorage.setItem('accessToken', data.token);
-            window.location.href = data.redirectUrl || 'dashboard.html';
+            try {
+                const data = await response.json();
+
+                sessionStorage.setItem('accessToken', data.token);
+
+                const meResponse = await fetch('http://localhost:8080/api/auth/me', {
+                    headers: { 'Authorization': 'Bearer ' + data.token }
+                });
+
+                const me = await meResponse.json();
+
+                window.location.href = (me.roleUser === 'ADMIN')
+                    ? './admin.html'
+                    : './dashboard.html';
+            } catch (e) {
+                console.error("Error retrieving token :", e);
+                window.location.href = './dashboard.html';
+            }
         } else {
             alert("Login failed. Please check your credentials.");
         }

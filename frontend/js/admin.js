@@ -951,7 +951,7 @@ async function adminResAction(id, action) {
 
 async function openGlobalCreateReservationModal() {
     try {
-        const branches = await adminFetch(`${API_BASE}/branches`); // Предполагаю, что adminFetch возвращает JSON
+        const branches = await adminFetch(`${API_BASE}/branches`);
         const services = await adminFetch(`${API_BASE}/services`);
         const bOpts = (branches || []).map(b => `<option value="${b.bankBranchName}">${b.bankBranchName}</option>`).join('');
         const sOpts = (services || []).map(s => `<option value="${s.bankServiceName}">${s.bankServiceName}</option>`).join('');

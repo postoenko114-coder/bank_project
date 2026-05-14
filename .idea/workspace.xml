@@ -4,11 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Fixed path to src">
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Removed annotation @IsOwner">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/oauth2/redirect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/branches.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/branches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/oauth2/redirect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +263,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -475,7 +510,10 @@
       <workItem from="1778346088038" duration="2121000" />
       <workItem from="1778407518536" duration="249000" />
       <workItem from="1778514907577" duration="2614000" />
-      <workItem from="1778666224683" duration="1745000" />
+      <workItem from="1778666224683" duration="11497000" />
+      <workItem from="1778703546821" duration="4667000" />
+      <workItem from="1778708299044" duration="3380000" />
+      <workItem from="1778750912680" duration="5999000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -605,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778518631146</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changed redirect url for frontend. Also added exceptionHandling in SecurityConfig">
+      <option name="closed" value="true" />
+      <created>1778668073870</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778668073870</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed annotation @IsOwner">
+      <option name="closed" value="true" />
+      <created>1778755439676</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778755439676</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +693,9 @@
     <MESSAGE value="Seperated front and back." />
     <MESSAGE value="." />
     <MESSAGE value="Fixed path to src" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed path to src" />
+    <MESSAGE value="Changed redirect url for frontend. Also added exceptionHandling in SecurityConfig" />
+    <MESSAGE value="Removed annotation @IsOwner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed annotation @IsOwner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

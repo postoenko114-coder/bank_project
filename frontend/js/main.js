@@ -258,7 +258,7 @@ async function checkAuth() {
             const response = await fetch('/api/auth/me', { headers: { 'Authorization': `Bearer ${token}` } });
             if (response.ok) {
                 const user = await response.json();
-                if (authContainer) authContainer.innerHTML = `<a href="dashboard.html" class="btn btn-primary-custom">My Dashboard</a>`;
+                if (authContainer) authContainer.innerHTML = `<a href="../dashboard.html" class="btn btn-primary-custom">My Dashboard</a>`;
                 const emailInput = document.getElementById('supp-email');
                 if (emailInput) { emailInput.value = user.email; emailInput.readOnly = true; }
             }
@@ -270,8 +270,8 @@ async function loadExchangeRates() {
     if (!document.getElementById('rate-eur-usd')) return;
     try {
         const [resEur, resUsd] = await Promise.all([
-            fetch('https://api.frankfurter.app/latest?from=EUR&to=USD,CZK'),
-            fetch('https://api.frankfurter.app/latest?from=USD&to=CZK')
+            fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD,CZK'),
+            fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=CZK')
         ]);
 
         const dataEur = await resEur.json();
@@ -280,7 +280,9 @@ async function loadExchangeRates() {
         document.getElementById('rate-eur-usd').textContent = dataEur.rates.USD.toFixed(3);
         document.getElementById('rate-eur-czk').textContent = dataEur.rates.CZK.toFixed(2);
         document.getElementById('rate-usd-czk').textContent = dataUsd.rates.CZK.toFixed(2);
-    } catch (e) { console.error('Rates error', e); }
+    } catch (e) {
+        console.error('Rates error', e);
+    }
 }
 
 async function sendSupport() {
