@@ -11,7 +11,7 @@ public interface AccountMapper {
     @Mapping(source = "currencyAccount", target = "currency")
     AccountDTO toDTO(Account account);
 
-    @Mapping(target = "currency", source = "currencyAccount")
+    @Mapping(source = "currency", target = "currencyAccount")
     Account toEntity(AccountDTO accountDTO);
 
 }
