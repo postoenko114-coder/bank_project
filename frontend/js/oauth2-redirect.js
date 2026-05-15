@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sessionStorage.setItem('accessToken', token);
 
         setTimeout(() => {
-            window.location.href = './dashboard.html';
+            window.location.href = '../dashboard.html';
         }, 500);
     } else {
         const errorMsg = error || 'Authentication failed';
-        window.location.href = './login.html?error=' + encodeURIComponent(errorMsg);
+        window.location.href = '../login.html?error=' + encodeURIComponent(errorMsg);
     }
 });
