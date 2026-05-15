@@ -2,19 +2,17 @@ package com.example.demo.controllers;
 
 import com.example.demo.dto.BankBranchDTO;
 import com.example.demo.services.bankBranch.BankBranchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/branches")
+@RequiredArgsConstructor
 public class BankBranchController {
 
     private final BankBranchService bankBranchService;
-
-    public BankBranchController(BankBranchService bankBranchService) {
-        this.bankBranchService = bankBranchService;
-    }
 
     @GetMapping
     public List<BankBranchDTO> getBankBranches() {

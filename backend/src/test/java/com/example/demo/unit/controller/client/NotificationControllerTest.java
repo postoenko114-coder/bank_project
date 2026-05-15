@@ -1,7 +1,6 @@
 package com.example.demo.unit.controller.client;
 
 import com.example.demo.controllers.client.NotificationController;
-import com.example.demo.dto.notification.NotificationDTO;
 import com.example.demo.exception.GlobalExceptionHandler;
 import com.example.demo.models.notification.Notification;
 import com.example.demo.models.notification.StatusNotification;
@@ -25,7 +24,8 @@ import java.util.List;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,9 +48,9 @@ public class NotificationControllerTest {
     private Notification buildNotification(Long id, TypeNotification type, String message) {
         Notification n = new Notification();
         n.setId(id);
-        n.setType(type);
+        n.setTypeNotification(type);
         n.setMessage(message);
-        n.setStatus(StatusNotification.NEW);
+        n.setStatusNotification(StatusNotification.NEW);
         n.setCreatedAt(LocalDateTime.now());
         return n;
     }

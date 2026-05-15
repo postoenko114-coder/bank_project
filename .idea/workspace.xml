@@ -4,46 +4,212 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Removed annotation @IsOwner">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/oauth2/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Changed some file paths">
+      <change afterPath="$PROJECT_DIR$/backend/.github/workflows/backend-ci.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/AccountMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/BankBranchMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/BankServiceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/CardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/LocationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/NotificationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/ReservationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/SupportMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/TransactionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/WorkingHourMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-test.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__Init_DB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankBranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankBranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/SupportMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/SupportMessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankBranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankBranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminNotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminNotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminSupportMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminSupportMessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AccountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankBranchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankBranchDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankServiceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankServiceDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/CardDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/LocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/LocationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/ReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/TransferDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/TransferDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/WorkingHourDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/WorkingHourDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTOAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/support/SupportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/support/SupportDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTOAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOForClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOForClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/account/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankBranch.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankBranch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/WorkingHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/WorkingHour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/reservation/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/reservation/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/card/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/notification/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/notification/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/supportMessage/SupportMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/supportMessage/SupportMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/transaction/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/account/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/account/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankBranch/BankBranchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankBranch/BankBranchServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankService/BankServiceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankService/BankServiceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/card/CardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/card/CardServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/notification/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/notification/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/reservation/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/reservation/ReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/supportMessage/SupportMessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/supportMessage/SupportMessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/transaction/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/transaction/TransactionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/DockerSanityCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/integration/controller/AuthIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/integration/controller/AuthIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/AuthControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/BankServiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/BankServiceControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminAccountControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminAccountControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminUserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminUserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/NotificationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/NotificationControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/TransactionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/TransactionControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/AccountServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/AccountServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankBranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankBranchServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankServiceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/CardServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/CardServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/NotificationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/NotificationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/ReservationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/ReservationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/SupportMessageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/SupportMessageServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/TransactionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/TransactionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/config/ApplicationConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankServiceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankBranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankBranchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankServiceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminNotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminNotificationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminSupportMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminSupportMessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminTransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminTransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminUserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AccountDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AccountDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AuthenticationResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AuthenticationResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankBranchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankBranchDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankServiceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankServiceDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/CardDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/CardDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTOAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/support/SupportDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/support/SupportDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTOAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserCreateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserCreateDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOForClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOForClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/account/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankBranch.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankBranch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/Location.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/WorkingHour.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/WorkingHour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/reservation/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/reservation/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/card/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/card/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/notification/Notification.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/notification/Notification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/supportMessage/SupportMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/supportMessage/SupportMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/transaction/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/transaction/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/AuthenticationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/JwtAuthenticationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/account/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/account/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankBranch/BankBranchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankBranch/BankBranchServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankService/BankServiceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankService/BankServiceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/card/CardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/card/CardServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/notification/NotificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/notification/NotificationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/reservation/ReservationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/reservation/ReservationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/supportMessage/SupportMessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/supportMessage/SupportMessageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/transaction/TransactionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/transaction/TransactionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/user/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/branches.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/branches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/AuthIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/AuthIntegrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/TransferIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/TransferIntegrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/AuthControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/AuthControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/BankServiceControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/BankServiceControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminAccountControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminAccountControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminUserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminUserControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/NotificationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/NotificationControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/TransactionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/TransactionControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/AccountServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/AccountServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankBranchServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankBranchServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankServiceServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankServiceServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/CardServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/CardServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/NotificationServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/NotificationServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/ReservationServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/ReservationServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/SupportMessageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/SupportMessageServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/TransactionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/TransactionServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/UserServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/oauth2/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +225,8 @@
         <option value="com.intellij.jpb.JpaEntity" />
         <option value="Enum" />
         <option value="package-info" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -101,178 +267,182 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DockerSanityCheck.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.createUserAccount_ShouldReturn400_WhenCurrencyParamIsMissing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.createUserAccount_ShouldReturnAccountDTO_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.createUserAccount_ShouldThrowException_WhenUserDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.getUserAccount_ShouldReturnAccountDTO_WhenUserDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.getUserAccount_ShouldThrowsException_WhenUserDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.getUserAccounts_ShouldReturnUserDTOAccounts.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.getUserAccounts_ShouldThrowsException_WhenUserDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountControllerTest.makeWithdrawal_ShouldReturnTransactionDTO_WhenAccountExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountServiceTest.blockAccount_ShouldReturnAccountDTO_WhenAccountIsActive.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminAccountControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminBankBranchControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminBankServiceControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminCardControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminNotificationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminReservationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminReservationControllerTest.getReservationsByFilters_ShouldReturnFilteredReservations.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminReservationControllerTest.getReservations_ShouldReturnAllReservations.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminSupportMessageControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminTransactionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminUserControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminUserControllerTest.updateUser_ShouldReturnUpdatedUserDTOAdmin_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.authenticate_ShouldReturnAdminUrl_WhenUserIsAdmin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.authenticate_ShouldReturnDashboardUrl_WhenUserIsNormal.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.getCurrentUser_ShouldReturnUserDTO.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthControllerTest.register_ShouldReturn200AndToken_WhenDataIsValid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthIntegrationTest.authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthIntegrationTest.register_ShouldSaveUserToDatabase_AndReturnToken.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankBranchIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankServiceIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBranchAndServiceIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.deleteBankBranch_ShouldBeDeleted.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.deleteBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankBranchIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.deleteBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankServiceIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.findBranchByName_ShouldReturnBankBranch_WhenBankBranchExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.findBranchByName_ShouldThrowsException_WhenBankBranchDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchById_ShouldReturnBankBranchDTO_WhenBranchExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchById_ShouldThrowException_WhenBankBranchDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesByLocation_ShouldReturnListDTOs_WhenCityAndStreetIsNotNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesByLocation_ShouldReturnListDTOs_WhenCityAndStreetIsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesByService_ShouldReturnListDTOs_WhenServiceNameIsNotNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesByService_ShouldReturnListDTOs_WhenServiceNameIsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesOfService_ShouldReturnListServiceDTOs_WhenBankBranchIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getBranchesOfService_ShouldThrowsException_WhenBankBranchIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getNearestBranches_ShouldReturnListDTOs_WhenCoordinatesAreProvided.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getNearestBranches_ShouldThrowBadRequest_WhenCoordinatesAreMissing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getNearestBranches_ShouldThrowBadRequest_WhenOneCoordinateIsMissing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.getServicesOfBranch_ShouldThrowsException_WhenBankBranchIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.isBranchOpen_ShouldReturnFalse_WhenBankBranchIsOpenAndExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.isBranchOpen_ShouldReturnTrue_WhenBankBranchIsOpenAndExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.isisBranchOpen_ShouldThrowsException_WhenBankBranchDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankBranchServiceTest.removeBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBranchAndServiceIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankServiceControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BankServiceServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.addBankBranch_ShouldEnrichCoordinates_WhenCoordinatesAreMissing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.addBankBranch_ShouldEnrichCoordinates_WhenCoordinatesAreNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.addBankBranch_ShouldUseProvidedCoordinates_WhenBothArePresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.updateBankBranch_ShouldThrowException_WhenBankBranchDoesntExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNullAndBranchIsExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNullAndBranchIsExistsAndNameChanged.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CardControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CardServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NotificationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.NotificationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.addReservation_ShouldReturnReservationDTO_WhenAllConditionsAreMet.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.addReservation_ShouldThrowBadRequest_WhenBranchIsNotOpenAtStartTime.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.addReservation_ShouldThrowConflict_WhenTimeSlotIsAlreadyTaken.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.addReservation_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.cancelReservation_ShouldSetStatusToCancelled_WhenReservationExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationServiceTest.getAllReservationsOfUser_ShouldReturnReservationDTOList_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageControllerTest.createSupportMessage_ShouldReturnSupportDTO_WhenDataIsValid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.createSupportMessage_ShouldReturnSupportDTO_WhenPrincipalIsNotNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.createSupportMessage_ShouldReturnSupportDTO_WhenPrincipalIsNullAndEmailIsNotEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.createSupportMessage_ShouldThrowsException_WhenPrincipalIsNullAndEmailIsEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.getAllSupportMessages_ShouldReturnSupportDTO_WhenSupportIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.getSupportById_ShouldReturnSupportDTO_WhenSupportIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.getSupportById_ShouldThrowsException_WhenSupportIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.markAsCompleted_WhenMessageIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.markAsICompleted_WhenMessageIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.markAsInCompleted_WhenMessageIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.markAsInProgress_WhenMessageIsNotPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.markAsInProgress_WhenMessageIsPresent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SupportMessageServiceTest.search_ShouldReturnListSupportDTO.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransactionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransactionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransactionServiceTest.recordDeposit_ShouldReturnTransaction_WithCorrectTypeAndStatus.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransferIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransferIntegrationTest.transfer_ShouldReturn201_WhenBothAccountsIsSufficient.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TransferIntegrationTest.transfer_ShouldReturn400_WhenInsufficientFunds.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.changePassword_ShouldReturn400_WhenOldPasswordIsMissing.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.changePassword_ShouldReturnUserDTO.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.deleteUser_ShouldReturn200.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.deleteUser_ShouldReturn404_WhenUserNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.editUserProfile_ShouldReturn404_WhenUserNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.editUserProfile_ShouldReturn409_WhenEmailAlreadyTaken.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.editUserProfile_ShouldReturnUserDTOForClient.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.getUserProfile_ShouldReturnUserDTOProClient.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.changePassword_ShouldReturnUserDTO_WhenUserExistsAndOldPasswordDoesntMatches.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.changePassword_ShouldReturnUserDTO_WhenUserExistsAndOldPasswordMatches.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.changePassword_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.changeRole_ShouldReturnUserDTOAdmin_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.changeRole_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.checkEmail_ShouldReturnFalse_WhenEmailDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.checkEmail_ShouldReturnTrue_WhenEmailExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.createUser_ShouldCreateUser_WhenDataIsCorrect.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenEmailExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenUsernameExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.findUserByEmail_ShouldReturnUser_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.findUserByEmail_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.findUserByUsername_ShouldReturnUser_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.findUserByUsername_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getAllUsers_ShouldReturnAllUsers.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserById_ShouldReturnUser_WhenUserExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserById_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.searchUsers_ShouldReturnAllUsers_WhenQueryIsNullOrBlank.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.searchUsers_ShouldReturnListUsers_WhenQueryIsNotEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndEmailChanged.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndNothingChanged.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndUsernameAndEmailChanged.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndUsernameChanged.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldThrowConflict_WhenNewEmailIsTaken.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateUser_ShouldThrowNotFound_WhenUserDoesNotExist.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.bank [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.bank [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.bank [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.bank [validate].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/prokop na jave/src/demo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DockerSanityCheck.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "JUnit.AccountControllerTest.createUserAccount_ShouldReturn400_WhenCurrencyParamIsMissing.executor": "Run",
+    "JUnit.AccountControllerTest.createUserAccount_ShouldReturnAccountDTO_WhenUserExists.executor": "Run",
+    "JUnit.AccountControllerTest.createUserAccount_ShouldThrowException_WhenUserDoesntExists.executor": "Run",
+    "JUnit.AccountControllerTest.executor": "Run",
+    "JUnit.AccountControllerTest.getUserAccount_ShouldReturnAccountDTO_WhenUserDoesntExists.executor": "Run",
+    "JUnit.AccountControllerTest.getUserAccount_ShouldThrowsException_WhenUserDoesntExists.executor": "Run",
+    "JUnit.AccountControllerTest.getUserAccounts_ShouldReturnUserDTOAccounts.executor": "Run",
+    "JUnit.AccountControllerTest.getUserAccounts_ShouldThrowsException_WhenUserDoesntExists.executor": "Run",
+    "JUnit.AccountControllerTest.makeWithdrawal_ShouldReturnTransactionDTO_WhenAccountExists.executor": "Run",
+    "JUnit.AccountServiceTest.addAccount_ShouldReturnAccountDTO_WhenUserExists.executor": "Run",
+    "JUnit.AccountServiceTest.blockAccount_ShouldReturnAccountDTO_WhenAccountIsActive.executor": "Run",
+    "JUnit.AccountServiceTest.executor": "Run",
+    "JUnit.AdminAccountControllerTest.executor": "Run",
+    "JUnit.AdminBankBranchControllerTest.executor": "Run",
+    "JUnit.AdminBankServiceControllerTest.executor": "Run",
+    "JUnit.AdminCardControllerTest.executor": "Run",
+    "JUnit.AdminNotificationControllerTest.executor": "Run",
+    "JUnit.AdminReservationControllerTest.executor": "Run",
+    "JUnit.AdminReservationControllerTest.getReservationsByFilters_ShouldReturnFilteredReservations.executor": "Run",
+    "JUnit.AdminReservationControllerTest.getReservations_ShouldReturnAllReservations.executor": "Run",
+    "JUnit.AdminSupportMessageControllerTest.executor": "Run",
+    "JUnit.AdminTransactionControllerTest.executor": "Run",
+    "JUnit.AdminUserControllerTest.executor": "Run",
+    "JUnit.AdminUserControllerTest.getUser_ShouldReturnUserDTO_WhenUserExists.executor": "Run",
+    "JUnit.AdminUserControllerTest.updateUser_ShouldReturnUpdatedUserDTOAdmin_WhenUserExists.executor": "Run",
+    "JUnit.AuthControllerTest.authenticate_ShouldReturnAdminUrl_WhenUserIsAdmin.executor": "Run",
+    "JUnit.AuthControllerTest.authenticate_ShouldReturnDashboardUrl_WhenUserIsNormal.executor": "Run",
+    "JUnit.AuthControllerTest.executor": "Run",
+    "JUnit.AuthControllerTest.getCurrentUser_ShouldReturnUserDTO.executor": "Run",
+    "JUnit.AuthControllerTest.register_ShouldReturn200AndToken_WhenDataIsValid.executor": "Run",
+    "JUnit.AuthIntegrationTest.authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid.executor": "Run",
+    "JUnit.AuthIntegrationTest.executor": "Run",
+    "JUnit.AuthIntegrationTest.register_ShouldSaveUserToDatabase_AndReturnToken.executor": "Run",
+    "JUnit.BankBranchControllerTest.executor": "Run",
+    "JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankBranchIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankServiceIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.addBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBranchAndServiceIsPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.deleteBankBranch_ShouldBeDeleted.executor": "Run",
+    "JUnit.BankBranchServiceTest.deleteBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankBranchIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.deleteBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBankServiceIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.executor": "Run",
+    "JUnit.BankBranchServiceTest.findBranchByName_ShouldReturnBankBranch_WhenBankBranchExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.findBranchByName_ShouldThrowsException_WhenBankBranchDoesntExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchById_ShouldReturnBankBranchDTO_WhenBranchExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchById_ShouldThrowException_WhenBankBranchDoesntExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesByLocation_ShouldReturnListDTOs_WhenCityAndStreetIsNotNull.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesByLocation_ShouldReturnListDTOs_WhenCityAndStreetIsNull.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesByService_ShouldReturnListDTOs_WhenServiceNameIsNotNull.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesByService_ShouldReturnListDTOs_WhenServiceNameIsNull.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesOfService_ShouldReturnListServiceDTOs_WhenBankBranchIsPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.getBranchesOfService_ShouldThrowsException_WhenBankBranchIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.getNearestBranches_ShouldReturnListDTOs_WhenCoordinatesAreProvided.executor": "Run",
+    "JUnit.BankBranchServiceTest.getNearestBranches_ShouldThrowBadRequest_WhenCoordinatesAreMissing.executor": "Run",
+    "JUnit.BankBranchServiceTest.getNearestBranches_ShouldThrowBadRequest_WhenOneCoordinateIsMissing.executor": "Run",
+    "JUnit.BankBranchServiceTest.getServicesOfBranch_ShouldThrowsException_WhenBankBranchIsNotPresent.executor": "Run",
+    "JUnit.BankBranchServiceTest.isBranchOpen_ShouldReturnFalse_WhenBankBranchIsOpenAndExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.isBranchOpen_ShouldReturnTrue_WhenBankBranchIsOpenAndExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.isisBranchOpen_ShouldThrowsException_WhenBankBranchDoesntExists.executor": "Run",
+    "JUnit.BankBranchServiceTest.removeBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBranchAndServiceIsPresent.executor": "Run",
+    "JUnit.BankServiceControllerTest.executor": "Run",
+    "JUnit.BankServiceServiceTest.executor": "Run",
+    "JUnit.BranchServiceTest.addBankBranch_ShouldEnrichCoordinates_WhenCoordinatesAreMissing.executor": "Run",
+    "JUnit.BranchServiceTest.addBankBranch_ShouldEnrichCoordinates_WhenCoordinatesAreNull.executor": "Run",
+    "JUnit.BranchServiceTest.addBankBranch_ShouldUseProvidedCoordinates_WhenBothArePresent.executor": "Run",
+    "JUnit.BranchServiceTest.updateBankBranch_ShouldThrowException_WhenBankBranchDoesntExists.executor": "Run",
+    "JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNull.executor": "Run",
+    "JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNullAndBranchIsExists.executor": "Run",
+    "JUnit.BranchServiceTest.updateBankBranch_ShouldUseBankServiceRepository_WhenBankServicesAreNotNullAndBranchIsExistsAndNameChanged.executor": "Run",
+    "JUnit.CardControllerTest.executor": "Run",
+    "JUnit.CardServiceTest.executor": "Run",
+    "JUnit.NotificationControllerTest.executor": "Run",
+    "JUnit.NotificationServiceTest.executor": "Run",
+    "JUnit.ReservationControllerTest.executor": "Run",
+    "JUnit.ReservationServiceTest.addReservation_ShouldReturnReservationDTO_WhenAllConditionsAreMet.executor": "Run",
+    "JUnit.ReservationServiceTest.addReservation_ShouldThrowBadRequest_WhenBranchIsNotOpenAtStartTime.executor": "Run",
+    "JUnit.ReservationServiceTest.addReservation_ShouldThrowConflict_WhenTimeSlotIsAlreadyTaken.executor": "Run",
+    "JUnit.ReservationServiceTest.addReservation_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.ReservationServiceTest.cancelReservation_ShouldSetStatusToCancelled_WhenReservationExists.executor": "Run",
+    "JUnit.ReservationServiceTest.executor": "Run",
+    "JUnit.ReservationServiceTest.getAllReservationsOfUser_ShouldReturnReservationDTOList_WhenUserExists.executor": "Run",
+    "JUnit.SupportMessageControllerTest.createSupportMessage_ShouldReturnSupportDTO_WhenDataIsValid.executor": "Run",
+    "JUnit.SupportMessageControllerTest.executor": "Run",
+    "JUnit.SupportMessageServiceTest.createSupportMessage_ShouldReturnSupportDTO_WhenPrincipalIsNotNull.executor": "Run",
+    "JUnit.SupportMessageServiceTest.createSupportMessage_ShouldReturnSupportDTO_WhenPrincipalIsNullAndEmailIsNotEmpty.executor": "Run",
+    "JUnit.SupportMessageServiceTest.createSupportMessage_ShouldThrowsException_WhenPrincipalIsNullAndEmailIsEmpty.executor": "Run",
+    "JUnit.SupportMessageServiceTest.executor": "Run",
+    "JUnit.SupportMessageServiceTest.getAllSupportMessages_ShouldReturnSupportDTO_WhenSupportIsPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.getSupportById_ShouldReturnSupportDTO_WhenSupportIsPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.getSupportById_ShouldThrowsException_WhenSupportIsNotPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.markAsCompleted_WhenMessageIsNotPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.markAsICompleted_WhenMessageIsNotPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.markAsInCompleted_WhenMessageIsPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.markAsInProgress_WhenMessageIsNotPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.markAsInProgress_WhenMessageIsPresent.executor": "Run",
+    "JUnit.SupportMessageServiceTest.search_ShouldReturnListSupportDTO.executor": "Run",
+    "JUnit.TransactionControllerTest.executor": "Run",
+    "JUnit.TransactionServiceTest.executor": "Run",
+    "JUnit.TransactionServiceTest.recordDeposit_ShouldReturnTransaction_WithCorrectTypeAndStatus.executor": "Run",
+    "JUnit.TransferIntegrationTest.executor": "Run",
+    "JUnit.TransferIntegrationTest.transfer_ShouldReturn201_WhenBothAccountsIsSufficient.executor": "Run",
+    "JUnit.TransferIntegrationTest.transfer_ShouldReturn400_WhenInsufficientFunds.executor": "Run",
+    "JUnit.UserControllerTest.changePassword_ShouldReturn400_WhenOldPasswordIsMissing.executor": "Run",
+    "JUnit.UserControllerTest.changePassword_ShouldReturnUserDTO.executor": "Run",
+    "JUnit.UserControllerTest.deleteUser_ShouldReturn200.executor": "Run",
+    "JUnit.UserControllerTest.deleteUser_ShouldReturn404_WhenUserNotFound.executor": "Run",
+    "JUnit.UserControllerTest.editUserProfile_ShouldReturn404_WhenUserNotFound.executor": "Run",
+    "JUnit.UserControllerTest.editUserProfile_ShouldReturn409_WhenEmailAlreadyTaken.executor": "Run",
+    "JUnit.UserControllerTest.editUserProfile_ShouldReturnUserDTOForClient.executor": "Run",
+    "JUnit.UserControllerTest.executor": "Run",
+    "JUnit.UserControllerTest.getUserProfile_ShouldReturnUserDTOProClient.executor": "Run",
+    "JUnit.UserServiceTest.changePassword_ShouldReturnUserDTO_WhenUserExistsAndOldPasswordDoesntMatches.executor": "Run",
+    "JUnit.UserServiceTest.changePassword_ShouldReturnUserDTO_WhenUserExistsAndOldPasswordMatches.executor": "Run",
+    "JUnit.UserServiceTest.changePassword_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.changeRole_ShouldReturnUserDTOAdmin_WhenUserExists.executor": "Run",
+    "JUnit.UserServiceTest.changeRole_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.checkEmail_ShouldReturnFalse_WhenEmailDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.checkEmail_ShouldReturnTrue_WhenEmailExists.executor": "Run",
+    "JUnit.UserServiceTest.createUser_ShouldCreateUser_WhenDataIsCorrect.executor": "Run",
+    "JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenEmailExists.executor": "Run",
+    "JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenUsernameExists.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.findUserByEmail_ShouldReturnUser_WhenUserExists.executor": "Run",
+    "JUnit.UserServiceTest.findUserByEmail_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldReturnUser_WhenUserExists.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.getAllUsers_ShouldReturnAllUsers.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_ShouldReturnUser_WhenUserExists.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.searchUsers_ShouldReturnAllUsers_WhenQueryIsNullOrBlank.executor": "Run",
+    "JUnit.UserServiceTest.searchUsers_ShouldReturnListUsers_WhenQueryIsNotEmpty.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndEmailChanged.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndNothingChanged.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndUsernameAndEmailChanged.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldReturnUserDTO_WhenUserExistsAndUsernameChanged.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldThrowConflict_WhenNewEmailIsTaken.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_ShouldThrowNotFound_WhenUserDoesNotExist.executor": "Run",
+    "Maven.bank [clean].executor": "Run",
+    "Maven.bank [install].executor": "Run",
+    "Maven.bank [package].executor": "Run",
+    "Maven.bank [validate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/user/Documents/prokop na jave/src/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\prokop na jave\src\demo\backend" />
@@ -282,7 +452,7 @@
       <recent name="C:\Users\user\Downloads\prokop na jave\src\demo\src\main\resources\static\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
+  <component name="RunManager" selected="JUnit.TransferIntegrationTest">
     <configuration name="AuthIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <extension name="coverage">
@@ -293,27 +463,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.demo.integration.controller" />
       <option name="MAIN_CLASS_NAME" value="com.example.demo.integration.controller.AuthIntegrationTest" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <envs>
-        <env name="DOCKER_API_VERSION" value="1.44" />
-      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthIntegrationTest.authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.integration.controller.*" />
+          <option name="PATTERN" value="com.example.demo.unit.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.integration.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.integration.controller.AuthIntegrationTest" />
-      <option name="METHOD_NAME" value="authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.example.demo.unit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.unit.service.TransactionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -333,33 +498,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransferIntegrationTest.transfer_ShouldReturn201_WhenBothAccountsIsSufficient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.integration.controller.*" />
+          <option name="PATTERN" value="com.example.demo.unit.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.integration.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.integration.controller.TransferIntegrationTest" />
-      <option name="METHOD_NAME" value="transfer_ShouldReturn201_WhenBothAccountsIsSufficient" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.example.demo.unit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.unit.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransferIntegrationTest.transfer_ShouldReturn400_WhenInsufficientFunds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.createUser_ShouldThrowConflict_WhenEmailExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.integration.controller.*" />
+          <option name="PATTERN" value="com.example.demo.unit.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo.integration.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.integration.controller.TransferIntegrationTest" />
-      <option name="METHOD_NAME" value="transfer_ShouldReturn400_WhenInsufficientFunds" />
+      <option name="PACKAGE_NAME" value="com.example.demo.unit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.unit.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="createUser_ShouldThrowConflict_WhenEmailExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -371,6 +535,7 @@
         <env name="GOOGLE_CLIENT_SECRET" value="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" />
         <env name="JWT_SECRET" value="404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970" />
         <env name="MAIL_PASSWORD" value="bdyr llln paiv ctfi" />
+        <env name="LOCAL_DB_PASSWORD" value="Postoenko50!" />
       </envs>
       <module name="bank" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
@@ -399,20 +564,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.TransferIntegrationTest" />
-      <item itemvalue="JUnit.TransferIntegrationTest.transfer_ShouldReturn400_WhenInsufficientFunds" />
-      <item itemvalue="JUnit.AuthIntegrationTest.authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid" />
-      <item itemvalue="JUnit.TransferIntegrationTest.transfer_ShouldReturn201_WhenBothAccountsIsSufficient" />
       <item itemvalue="JUnit.AuthIntegrationTest" />
+      <item itemvalue="JUnit.TransactionServiceTest" />
+      <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenEmailExists" />
+      <item itemvalue="JUnit.TransferIntegrationTest" />
       <item itemvalue="Spring Boot.DemoApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TransferIntegrationTest.transfer_ShouldReturn400_WhenInsufficientFunds" />
         <item itemvalue="JUnit.TransferIntegrationTest" />
-        <item itemvalue="JUnit.TransferIntegrationTest.transfer_ShouldReturn201_WhenBothAccountsIsSufficient" />
-        <item itemvalue="JUnit.AuthIntegrationTest.authenticate_ShouldReturnTokenAndDashboardUrl_WhenCredentialsAreValid" />
         <item itemvalue="JUnit.AuthIntegrationTest" />
+        <item itemvalue="JUnit.UserServiceTest.createUser_ShouldThrowConflict_WhenEmailExists" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.TransactionServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -513,7 +678,8 @@
       <workItem from="1778666224683" duration="11497000" />
       <workItem from="1778703546821" duration="4667000" />
       <workItem from="1778708299044" duration="3380000" />
-      <workItem from="1778750912680" duration="5999000" />
+      <workItem from="1778750912680" duration="29965000" />
+      <workItem from="1778842634930" duration="10013000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -659,7 +825,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778755439676</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Changed some file paths">
+      <option name="closed" value="true" />
+      <created>1778757087145</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778757087145</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +869,8 @@
     <MESSAGE value="Fixed path to src" />
     <MESSAGE value="Changed redirect url for frontend. Also added exceptionHandling in SecurityConfig" />
     <MESSAGE value="Removed annotation @IsOwner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed annotation @IsOwner" />
+    <MESSAGE value="Changed some file paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed some file paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -708,6 +883,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankBranchServiceTest.java</url>
+          <line>385</line>
+          <properties class="com.example.demo.unit.service.BankBranchServiceTest" method="removeBankServiceToBranch_ShouldReturnBankBranchDTO_WhenBranchAndServiceIsPresent">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

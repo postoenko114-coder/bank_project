@@ -1,11 +1,13 @@
 package com.example.demo.services.bankService;
 
 import com.example.demo.dto.BankServiceDTO;
+import com.example.demo.mapper.BankServiceMapper;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.repositories.BankBranchRepository;
 import com.example.demo.repositories.BankServiceRepository;
 import com.example.demo.repositories.ReservationRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BankServiceServiceImpl implements BankServiceService {
 
     private final BankServiceRepository bankServiceRepository;
@@ -24,19 +27,12 @@ public class BankServiceServiceImpl implements BankServiceService {
 
     private final ReservationRepository  reservationRepository;
 
-    public BankServiceServiceImpl(BankServiceRepository bankServiceRepository, BankBranchRepository bankBranchRepository,  ReservationRepository reservationRepository) {
-        this.bankServiceRepository = bankServiceRepository;
-        this.bankBranchRepository = bankBranchRepository;
-        this.reservationRepository = reservationRepository;
-    }
+    private final BankServiceMapper bankServiceMapper;
 
     @Transactional
     @Override
     public BankServiceDTO addService(BankServiceDTO bankServiceDTO){
-        BankService bankService = new BankService();
-        bankService.setBankServiceName(bankServiceDTO.getBankServiceName());
-        bankService.setDuration(bankServiceDTO.getDuration());
-        bankService.setDescription(bankServiceDTO.getDescription());
+        BankService bankService = bankServiceMapper.toEntity(bankServiceDTO);
         bankServiceRepository.save(bankService);
         return bankServiceDTO;
     }
@@ -45,7 +41,7 @@ public class BankServiceServiceImpl implements BankServiceService {
     @Override
     public BankServiceDTO getServiceById(Long bankService_id){
         BankService bankService = bankServiceRepository.findById(bankService_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Bank Service Not Found"));
-        return bankService.toDTO();
+        return bankServiceMapper.toDTO(bankService);
     }
 
     @Transactional
@@ -54,7 +50,7 @@ public class BankServiceServiceImpl implements BankServiceService {
         List<BankService> bankServiceList = bankServiceRepository.findAll();
         List<BankServiceDTO> bankServiceDTOList = new ArrayList<>();
         for(BankService bankService : bankServiceList){
-            bankServiceDTOList.add(bankService.toDTO());
+            bankServiceDTOList.add(bankServiceMapper.toDTO(bankService));
         }
         return bankServiceDTOList;
     }
@@ -97,7 +93,7 @@ public class BankServiceServiceImpl implements BankServiceService {
 
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         boolean isOpenToday = bankBranch.getSchedule().stream()
-                .anyMatch(s -> s.getDayOfWeek().toString().equalsIgnoreCase(dayOfWeek.toString()));
+                .anyMatch(s -> s.getDay().toString().equalsIgnoreCase(dayOfWeek.toString()));
 
         if (!isOpenToday) {
             return false;

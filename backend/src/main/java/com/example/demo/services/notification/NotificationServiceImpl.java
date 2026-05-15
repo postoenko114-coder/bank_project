@@ -1,6 +1,7 @@
 package com.example.demo.services.notification;
 
 import com.example.demo.dto.notification.NotificationDTOAdmin;
+import com.example.demo.mapper.NotificationMapper;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.notification.Notification;
 import com.example.demo.models.notification.StatusNotification;
@@ -8,6 +9,7 @@ import com.example.demo.models.notification.TypeNotification;
 import com.example.demo.models.user.User;
 import com.example.demo.repositories.NotificationRepository;
 import com.example.demo.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class NotificationServiceImpl implements NotificationService {
 
     private final NotificationRepository notificationRepository;
@@ -29,19 +32,15 @@ public class NotificationServiceImpl implements NotificationService {
 
     private final SimpMessagingTemplate messagingTemplate;
 
-    public NotificationServiceImpl(NotificationRepository notificationRepository, UserRepository userRepository,SimpMessagingTemplate messagingTemplate) {
-        this.notificationRepository = notificationRepository;
-        this.userRepository = userRepository;
-        this.messagingTemplate = messagingTemplate;
-    }
+    private final NotificationMapper notificationMapper;
 
     @Transactional
     @Override
     public Notification createNotification(User user, TypeNotification typeNotification, String message){
         Notification notification = new Notification();
         notification.setUser(user);
-        notification.setType(typeNotification);
-        notification.setStatus(StatusNotification.NEW);
+        notification.setTypeNotification(typeNotification);
+        notification.setStatusNotification(StatusNotification.NEW);
         notification.setMessage(message);
         notification.setCreatedAt(LocalDateTime.now());
         notificationRepository.save(notification);
@@ -52,7 +51,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public Notification getNotificationByIdAndMarkAsRead(Long notification_id){
         Notification notification = notificationRepository.findById(notification_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found"));
-        notification.setStatus(StatusNotification.READ);
+        notification.setStatusNotification(StatusNotification.READ);
         return notification;
     }
 
@@ -60,8 +59,8 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public Notification updateNotification(Long notification_id, String typeNotification, String message){
         Notification notification = notificationRepository.findById(notification_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found"));
-        if(!TypeNotification.valueOf(typeNotification.toUpperCase()).equals(notification.getType())){
-            notification.setType(TypeNotification.valueOf(typeNotification.toUpperCase()));
+        if(!TypeNotification.valueOf(typeNotification.toUpperCase()).equals(notification.getTypeNotification())){
+            notification.setTypeNotification(TypeNotification.valueOf(typeNotification.toUpperCase()));
         }
         if(!message.equals(notification.getMessage())){
             notification.setMessage(message);
@@ -129,7 +128,7 @@ public class NotificationServiceImpl implements NotificationService {
         List<Notification> notifications = notificationRepository.findAllByUser(user, pageable);
         List<Notification> newNotifications = new ArrayList<>();
         for(Notification notification : notifications){
-            if(notification.getStatus().equals(StatusNotification.SENT)){
+            if(notification.getStatusNotification().equals(StatusNotification.SENT)){
                 newNotifications.add(notification);
             }
         }
@@ -138,7 +137,8 @@ public class NotificationServiceImpl implements NotificationService {
     @Transactional
     @Override
     public NotificationDTOAdmin getNotificationForAdmin(Long notification_id){
-        return notificationRepository.findById(notification_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found")).toDTOAdmin();
+        Notification notification = notificationRepository.findById(notification_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found"));
+        return notificationMapper.toDTOAdmin(notification);
     }
 
     @Transactional
@@ -170,12 +170,12 @@ public class NotificationServiceImpl implements NotificationService {
 
     public void markAsSent(Long notification_id){
         Notification notification = notificationRepository.findById(notification_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found"));
-        notification.setStatus(StatusNotification.SENT);
+        notification.setStatusNotification(StatusNotification.SENT);
     }
 
     public void markAsRead(Long notification_id){
         Notification notification = notificationRepository.findById(notification_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Notification not found"));
-        notification.setStatus(StatusNotification.READ);
+        notification.setStatusNotification(StatusNotification.READ);
     }
 
 }

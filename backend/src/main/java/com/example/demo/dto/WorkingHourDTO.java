@@ -1,5 +1,8 @@
 package com.example.demo.dto;
 
+import lombok.Data;
+
+@Data
 public class WorkingHourDTO {
 
     private String dayOfWeek;
@@ -11,32 +14,5 @@ public class WorkingHourDTO {
         this.dayOfWeek = dayOfWeek;
         this.openTime = openTime;
         this.closeTime = closeTime;
-    }
-
-    public WorkingHourDTO() {
-    }
-
-    public String getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(String closeTime) {
-        this.closeTime = closeTime;
-    }
-
-    public String getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(String dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
-    }
-
-    public String getOpenTime() {
-        return openTime;
-    }
-
-    public void setOpenTime(String openTime) {
-        this.openTime = openTime;
     }
 }

@@ -1,9 +1,11 @@
 package com.example.demo.controllers.client;
 
 import com.example.demo.dto.notification.NotificationDTO;
+import com.example.demo.mapper.NotificationMapper;
 import com.example.demo.models.notification.Notification;
 import com.example.demo.security.IsOwner;
 import com.example.demo.services.notification.NotificationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -16,13 +18,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/{userId}/notifications")
 @IsOwner
+@RequiredArgsConstructor
 public class NotificationController {
 
     private final NotificationService notificationService;
 
-    public NotificationController(NotificationService notificationService) {
-        this.notificationService = notificationService;
-    }
+    private final NotificationMapper notificationMapper;
 
     @GetMapping
     public List<NotificationDTO> getAllNotifications(@PathVariable Long userId, @PageableDefault(size = 10) Pageable pageable) {
@@ -31,7 +32,8 @@ public class NotificationController {
 
     @GetMapping("/{notificationId}")
     public NotificationDTO getNotification(@PathVariable Long userId, @PathVariable Long notificationId) {
-        return notificationService.getNotificationByIdAndMarkAsRead(notificationId).toDTO();
+        Notification notification = notificationService.getNotificationByIdAndMarkAsRead(notificationId);
+        return notificationMapper.toDTO(notification);
     }
 
     @GetMapping("/unread-count")
@@ -54,7 +56,7 @@ public class NotificationController {
     private List<NotificationDTO> getNotificationDTOs(List<Notification> notifications) {
         List<NotificationDTO> list = new ArrayList<>();
         for (Notification notification : notifications) {
-            list.add(notification.toDTO());
+            list.add(notificationMapper.toDTO(notification));
         }
         return list;
     }

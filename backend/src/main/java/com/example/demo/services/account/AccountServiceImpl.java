@@ -1,6 +1,7 @@
 package com.example.demo.services.account;
 
 import com.example.demo.dto.AccountDTO;
+import com.example.demo.mapper.AccountMapper;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.CurrencyAccount;
 import com.example.demo.models.account.StatusAccount;
@@ -11,6 +12,7 @@ import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.notification.NotificationService;
 import com.example.demo.services.transaction.TransactionService;
 import com.example.demo.utils.currencyConvert.Converter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
@@ -33,12 +36,7 @@ public class AccountServiceImpl implements AccountService {
 
     private final NotificationService notificationService;
 
-    public AccountServiceImpl(AccountRepository accountRepository, UserRepository userRepository, TransactionService transactionService, NotificationService notificationService) {
-        this.accountRepository = accountRepository;
-        this.userRepository = userRepository;
-        this.transactionService = transactionService;
-        this.notificationService = notificationService;
-    }
+    private final AccountMapper accountMapper;
 
     @Transactional
     @Override
@@ -53,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
         account.setStatusAccount(StatusAccount.ACTIVE);
         accountRepository.save(account);
         user.getAccounts().add(account);
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional
@@ -63,7 +61,7 @@ public class AccountServiceImpl implements AccountService {
         List<Account> accounts = user.getAccounts();
         List<AccountDTO> dtos = new ArrayList<>();
         for (Account account : accounts) {
-            dtos.add(account.toDTO());
+            dtos.add(accountMapper.toDTO(account));
         }
         return dtos;
     }
@@ -73,14 +71,14 @@ public class AccountServiceImpl implements AccountService {
     public AccountDTO getAccountById(Long account_id) {
         Account account = accountRepository.findById(account_id).orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Account not found"));
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional
     @Override
     public AccountDTO getAccountByNumber(String accountNumber) {
         Account account = accountRepository.findByAccountNumber(accountNumber).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found"));
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional
@@ -94,7 +92,7 @@ public class AccountServiceImpl implements AccountService {
             account.setStatusAccount(StatusAccount.BLOCKED);
         }
         notificationService.notifyPersonalMessage(account.getUser().getId(), "Your account: " + account.getAccountNumber() + " has been blocked");
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional
@@ -108,7 +106,7 @@ public class AccountServiceImpl implements AccountService {
             account.setStatusAccount(StatusAccount.CLOSED);
         }
         notificationService.notifyPersonalMessage(account.getUser().getId(), "Your account: " + account.getAccountNumber() + " has been closed");
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional
@@ -122,7 +120,7 @@ public class AccountServiceImpl implements AccountService {
             account.setStatusAccount(StatusAccount.ACTIVE);
         }
         notificationService.notifyPersonalMessage(account.getUser().getId(), "Your account: " + account.getAccountNumber() + " has been activated");
-        return account.toDTO();
+        return accountMapper.toDTO(account);
     }
 
     @Transactional

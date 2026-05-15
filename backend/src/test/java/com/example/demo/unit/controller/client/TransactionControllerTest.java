@@ -60,7 +60,7 @@ public class TransactionControllerTest {
         t.setAmount(amount);
         t.setAccountFrom(fakeAccount);
         t.setCreatedAt(LocalDateTime.now());
-        t.setHidden(false);
+        t.setIsHidden(false);
         return t;
     }
 
@@ -107,7 +107,7 @@ public class TransactionControllerTest {
     @WithMockUser
     void getTransaction_ShouldReturn400_WhenTransactionIsHidden() throws Exception {
         Transaction hiddenTransaction = buildTransaction(1L, TypeTransaction.WITHDRAWAL, BigDecimal.valueOf(100));
-        hiddenTransaction.setHidden(true);
+        hiddenTransaction.setIsHidden(true);
 
         when(transactionService.getTransactionById(1L)).thenReturn(hiddenTransaction);
 

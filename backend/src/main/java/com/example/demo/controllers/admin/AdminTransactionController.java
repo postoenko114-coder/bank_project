@@ -1,8 +1,10 @@
 package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.transaction.TransactionDTOAdmin;
+import com.example.demo.mapper.TransactionMapper;
 import com.example.demo.models.transaction.Transaction;
 import com.example.demo.services.transaction.TransactionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,13 +19,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/transactions")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminTransactionController {
 
     private final TransactionService transactionService;
 
-    public AdminTransactionController(TransactionService transactionService) {
-        this.transactionService = transactionService;
-    }
+    private final TransactionMapper transactionMapper;
 
     @GetMapping
     public List<TransactionDTOAdmin> getUserTransactions(@PathVariable Long userId, @PageableDefault(size = 10) Pageable pageable) {
@@ -37,7 +38,8 @@ public class AdminTransactionController {
 
     @GetMapping("/{transactionId}")
     public TransactionDTOAdmin getTransaction(@PathVariable Long transactionId) {
-        return transactionService.getTransactionById(transactionId).toDTOAdmin();
+        Transaction transaction = transactionService.getTransactionById(transactionId);
+        return transactionMapper.toDTOAdmin(transaction);
     }
 
     @GetMapping("/filter/date")
@@ -69,7 +71,7 @@ public class AdminTransactionController {
     private List<TransactionDTOAdmin> getTransactionDTOAdmins(List<Transaction> transactions) {
         List<TransactionDTOAdmin> transactionDTOAdmins = new ArrayList<>();
         for (Transaction transaction : transactions) {
-            transactionDTOAdmins.add(transaction.toDTOAdmin());
+            transactionDTOAdmins.add(transactionMapper.toDTOAdmin(transaction));
         }
         return transactionDTOAdmins;
     }

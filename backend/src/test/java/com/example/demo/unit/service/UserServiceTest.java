@@ -3,24 +3,25 @@ package com.example.demo.unit.service;
 import com.example.demo.dto.user.UserCreateDTO;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserDTOAdmin;
+import com.example.demo.mapper.UserMapper;
+import com.example.demo.mapper.UserMapperImpl;
 import com.example.demo.models.user.RoleUser;
 import com.example.demo.models.user.User;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.user.UserServiceImpl;
-import com.nimbusds.oauth2.sdk.Response;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -36,6 +37,9 @@ public class UserServiceTest {
 
     @InjectMocks
     private UserServiceImpl userServiceImpl;
+
+    @Spy
+    private UserMapper userMapper = new UserMapperImpl();
 
     @Test
     void createUser_ShouldCreateUser_WhenDataIsCorrect() {
@@ -86,7 +90,7 @@ public class UserServiceTest {
         );
 
         assertEquals(HttpStatus.CONFLICT, exception.getStatusCode());
-        assertEquals("Email already using", exception.getReason());
+        assertEquals("Email already in use", exception.getReason());
 
         verify(userRepository, never()).save(any(User.class));
     }

@@ -8,6 +8,7 @@ import com.example.demo.services.EmailService;
 import com.example.demo.services.notification.NotificationService;
 import com.example.demo.services.supportMessage.SupportMessageService;
 import com.example.demo.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/supportMessages")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminSupportMessageController {
 
     private final SupportMessageService supportMessageService;
@@ -28,14 +30,6 @@ public class AdminSupportMessageController {
     private final NotificationService notificationService;
 
     private final EmailService emailService;
-
-
-    public AdminSupportMessageController(SupportMessageService supportMessageService, UserService userService, NotificationService notificationService, EmailService emailService) {
-        this.supportMessageService = supportMessageService;
-        this.userService = userService;
-        this.notificationService = notificationService;
-        this.emailService = emailService;
-    }
 
     @GetMapping
     public List<SupportDTO> getAllSupportMessages() {

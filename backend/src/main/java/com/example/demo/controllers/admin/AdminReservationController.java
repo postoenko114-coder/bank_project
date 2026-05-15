@@ -7,6 +7,7 @@ import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
 import com.example.demo.services.reservation.ReservationService;
 import com.example.demo.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/reservations")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminReservationController {
 
     private final ReservationService reservationService;
@@ -27,13 +29,6 @@ public class AdminReservationController {
     private final BankServiceService bankServiceService;
 
     private final UserService userService;
-
-    public AdminReservationController(ReservationService reservationService, BankBranchService bankBranchService, BankServiceService bankServiceService, UserService userService) {
-        this.reservationService = reservationService;
-        this.bankBranchService = bankBranchService;
-        this.bankServiceService = bankServiceService;
-        this.userService = userService;
-    }
 
     @GetMapping
     public List<ReservationDTO> getReservations() {

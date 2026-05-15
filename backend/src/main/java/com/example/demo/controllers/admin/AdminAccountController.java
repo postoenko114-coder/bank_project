@@ -2,6 +2,7 @@ package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.AccountDTO;
 import com.example.demo.services.account.AccountService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/accounts")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminAccountController {
 
     private final AccountService accountService;
-
-    public AdminAccountController(AccountService accountService) {
-        this.accountService = accountService;
-    }
 
     @GetMapping
     public List<AccountDTO> getUserAccounts(@PathVariable Long userId) {

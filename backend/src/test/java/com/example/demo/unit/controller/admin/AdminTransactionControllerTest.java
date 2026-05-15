@@ -3,6 +3,7 @@ package com.example.demo.unit.controller.admin;
 import com.example.demo.controllers.admin.AdminTransactionController;
 import com.example.demo.dto.transaction.TransactionDTOAdmin;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.TransactionMapperImpl;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.CurrencyAccount;
 import com.example.demo.models.transaction.StatusTransaction;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -26,14 +28,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = {AdminTransactionController.class, GlobalExceptionHandler.class})
 @AutoConfigureMockMvc(addFilters = false)
+@Import(TransactionMapperImpl.class)
 public class AdminTransactionControllerTest {
 
     @Autowired
@@ -207,7 +212,7 @@ public class AdminTransactionControllerTest {
         t.setAmount(amount);
         t.setAccountFrom(fakeAccount);
         t.setCreatedAt(LocalDateTime.now());
-        t.setHidden(false);
+        t.setIsHidden(false);
         return t;
     }
 }

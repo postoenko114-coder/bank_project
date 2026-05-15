@@ -151,8 +151,8 @@ public class AdminSupportMessageControllerTest {
 
         Notification fakeNotification = new Notification();
         fakeNotification.setId(1L);
-        fakeNotification.setType(TypeNotification.SUPPORT);
-        fakeNotification.setStatus(StatusNotification.NEW);
+        fakeNotification.setTypeNotification(TypeNotification.SUPPORT);
+        fakeNotification.setStatusNotification(StatusNotification.NEW);
         fakeNotification.setMessage("RE: Support Request");
 
         when(supportMessageService.getSupportMessageById(1L)).thenReturn(fakeMessage);

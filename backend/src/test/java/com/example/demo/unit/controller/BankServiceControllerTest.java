@@ -3,6 +3,7 @@ package com.example.demo.unit.controller;
 import com.example.demo.controllers.BankServiceController;
 import com.example.demo.dto.BankServiceDTO;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.BankServiceMapperImpl;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.security.JwtService;
 import com.example.demo.services.bankBranch.BankBranchService;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -28,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = {BankServiceController.class, GlobalExceptionHandler.class})
 @AutoConfigureMockMvc(addFilters = false)
+@Import(BankServiceMapperImpl.class)
 public class BankServiceControllerTest {
 
     @Autowired

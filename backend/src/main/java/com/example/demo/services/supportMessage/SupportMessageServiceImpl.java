@@ -1,11 +1,12 @@
 package com.example.demo.services.supportMessage;
 
 import com.example.demo.dto.support.SupportDTO;
+import com.example.demo.mapper.SupportMapper;
 import com.example.demo.models.supportMessage.StatusSupportMessage;
 import com.example.demo.models.supportMessage.SupportMessage;
-import com.example.demo.models.user.User;
 import com.example.demo.repositories.SupportMessageRepository;
 import com.example.demo.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class SupportMessageServiceImpl implements SupportMessageService {
 
@@ -24,38 +26,34 @@ public class SupportMessageServiceImpl implements SupportMessageService {
 
     private final UserService userService;
 
-    public SupportMessageServiceImpl(SupportMessageRepository supportMessageRepository, UserService userService) {
-        this.supportMessageRepository = supportMessageRepository;
-        this.userService = userService;
-    }
+    private final SupportMapper  supportMapper;
 
     @Transactional
     @Override
-    public SupportDTO createSupportMessage(SupportDTO supportDTO, java.security.Principal principal){
-        SupportMessage supportMessage = new SupportMessage();
-        supportMessage.setMessage(supportDTO.getMessage());
-        supportMessage.setSubject(supportDTO.getSubject());
+    public SupportDTO createSupportMessage(SupportDTO supportDTO, java.security.Principal principal) {
+        String targetEmail;
         if (principal != null) {
-            User user = userService.findUserByEmail(principal.getName());
-
-            supportMessage.setUserEmail(user.getEmail());
+            targetEmail = principal.getName();
         } else {
-            if (supportDTO.getUserEmail() == null || supportDTO.getUserEmail().isEmpty()) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"You need to input email");
+            targetEmail = supportDTO.getUserEmail();
+            if (targetEmail == null || targetEmail.trim().isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You need to input email");
             }
-            supportMessage.setUserEmail(supportDTO.getUserEmail());
         }
-        supportMessage.setCreatedAt(LocalDateTime.now());
-        supportMessage.setStatusSupportMessage(StatusSupportMessage.NEW);
+
+        SupportMessage supportMessage = supportMapper.toEntity(supportDTO);
+
+        supportMessage.setUserEmail(targetEmail);
+
         supportMessageRepository.save(supportMessage);
-        return supportMessage.toDTO();
+        return supportMapper.toDTO(supportMessage);
     }
 
     @Transactional
     @Override
     public SupportDTO getSupportMessageById(Long supportMessage_id){
         SupportMessage message = supportMessageRepository.findSupportMessageById(supportMessage_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Support Message not found"));
-        return message.toDTO();
+        return supportMapper.toDTO(message);
     }
 
     @Transactional
@@ -64,7 +62,7 @@ public class SupportMessageServiceImpl implements SupportMessageService {
         List<SupportMessage> supportMessages = supportMessageRepository.findAll();
         List<SupportDTO> supportDTOs = new ArrayList<>();
         for (SupportMessage supportMessage : supportMessages) {
-            supportDTOs.add(supportMessage.toDTO());
+            supportDTOs.add(supportMapper.toDTO(supportMessage));
         }
         return supportDTOs;
     }
@@ -83,7 +81,7 @@ public class SupportMessageServiceImpl implements SupportMessageService {
         List<SupportMessage> supportMessages = supportMessageRepository.search(userEmail, startOfDay, endOfDay);
         List<SupportDTO> supportDTOs = new ArrayList<>();
         for(SupportMessage supportMessage : supportMessages){
-            supportDTOs.add(supportMessage.toDTO());
+            supportDTOs.add(supportMapper.toDTO(supportMessage));
         }
         return supportDTOs;
     }

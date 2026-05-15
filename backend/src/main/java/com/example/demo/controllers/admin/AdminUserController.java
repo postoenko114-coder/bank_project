@@ -3,8 +3,10 @@ package com.example.demo.controllers.admin;
 import com.example.demo.dto.user.UserCreateDTO;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserDTOAdmin;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.models.user.User;
 import com.example.demo.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +16,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/users")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminUserController {
 
     private final UserService userService;
 
-    public AdminUserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserMapper userMapper;
 
     @GetMapping
     public List<UserDTOAdmin> getUsers() {
@@ -29,7 +30,8 @@ public class AdminUserController {
 
     @GetMapping("/{userId}")
     public UserDTO getUser(@PathVariable Long userId) {
-        return userService.getUserById(userId).toDTO();
+        User user = userService.getUserById(userId);
+        return userMapper.toDTO(user);
     }
 
     @GetMapping("/search")
@@ -47,7 +49,7 @@ public class AdminUserController {
     public UserDTOAdmin updateUser(@PathVariable Long userId, @RequestBody UserDTO userDTO) {
         userService.updateUser(userId, userDTO);
         User user = userService.getUserById(userId);
-        return new UserDTOAdmin(userId, user.getRealUsername(), user.getEmail(), user.getRoleUser(), user.getCreatedAt());
+        return userMapper.toDTOAdmin(user);
     }
 
     @PutMapping("/{userId}/changeRoleUser")

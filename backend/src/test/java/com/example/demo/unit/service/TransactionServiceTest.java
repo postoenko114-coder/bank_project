@@ -2,6 +2,8 @@ package com.example.demo.unit.service;
 
 import com.example.demo.dto.transaction.TransactionDTO;
 import com.example.demo.dto.transaction.TransactionDTOAdmin;
+import com.example.demo.mapper.TransactionMapper;
+import com.example.demo.mapper.TransactionMapperImpl;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.CurrencyAccount;
 import com.example.demo.models.transaction.StatusTransaction;
@@ -16,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -45,7 +48,8 @@ public class TransactionServiceTest {
     @InjectMocks
     private TransactionServiceImpl transactionServiceImpl;
 
-    // ───── recordDeposit ─────
+    @Spy
+    private TransactionMapper transactionMapper = new TransactionMapperImpl();
 
     @Test
     void recordDeposit_ShouldReturnTransaction_WithCorrectTypeAndStatus() {
@@ -63,8 +67,6 @@ public class TransactionServiceTest {
         assertEquals(fakeAccount, result.getAccountTo());
         verify(transactionRepository, times(1)).save(any(Transaction.class));
     }
-
-    // ───── recordWithdrawal ─────
 
     @Test
     void recordWithdrawal_ShouldReturnTransaction_WithCorrectTypeAndStatus() {
@@ -165,7 +167,7 @@ public class TransactionServiceTest {
         TransactionDTO result = transactionServiceImpl.hideTransaction(1L);
 
         assertNotNull(result);
-        assertTrue(fakeTransaction.getHidden());
+        assertTrue(fakeTransaction.getIsHidden());
         verify(transactionRepository, times(1)).findById(1L);
     }
 

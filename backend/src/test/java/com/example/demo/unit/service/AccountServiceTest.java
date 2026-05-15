@@ -1,6 +1,8 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.AccountDTO;
+import com.example.demo.mapper.AccountMapper;
+import com.example.demo.mapper.AccountMapperImpl;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.CurrencyAccount;
 import com.example.demo.models.account.StatusAccount;
@@ -15,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -38,6 +41,9 @@ public class AccountServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Spy
+    private AccountMapper accountMapper = new AccountMapperImpl();;
+
     @Mock
     private TransactionService transactionService;
 
@@ -54,7 +60,6 @@ public class AccountServiceTest {
         fakeUser.setAccounts(new ArrayList<>());
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(fakeUser));
-        when(accountRepository.existsByAccountNumber(anyString())).thenReturn(false);
         when(accountRepository.save(any(Account.class))).thenAnswer(inv -> inv.getArgument(0));
 
         AccountDTO result = accountServiceImpl.addAccount(1L, "USD");

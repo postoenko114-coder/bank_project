@@ -67,7 +67,7 @@ class AuthIntegrationTest extends IntegrationTestBase {
                         .content(objectMapper.writeValueAsString(loginRequest)))
 
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.redirectUrl").value("/dashboard.html"))
+                .andExpect(jsonPath("$.targetUrl").value("/dashboard.html"))
                 .andExpect(jsonPath("$.token").exists());
     }
 

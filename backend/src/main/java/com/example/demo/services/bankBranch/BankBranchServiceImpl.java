@@ -1,6 +1,11 @@
 package com.example.demo.services.bankBranch;
 
-import com.example.demo.dto.*;
+import com.example.demo.dto.BankBranchDTO;
+import com.example.demo.dto.BankServiceDTO;
+import com.example.demo.dto.LocationDTO;
+import com.example.demo.dto.WorkingHourDTO;
+import com.example.demo.mapper.BankBranchMapper;
+import com.example.demo.mapper.BankServiceMapper;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.models.branch.Location;
@@ -9,7 +14,7 @@ import com.example.demo.repositories.BankBranchRepository;
 import com.example.demo.repositories.BankServiceRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,37 +35,29 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class BankBranchServiceImpl implements BankBranchService {
 
     private final BankBranchRepository bankBranchRepository;
 
     private final BankServiceRepository bankServiceRepository;
 
-    public BankBranchServiceImpl(BankBranchRepository bankBranchRepository, BankServiceRepository bankServiceRepository) {
-        this.bankBranchRepository = bankBranchRepository;
-        this.bankServiceRepository = bankServiceRepository;
-    }
+    private final BankBranchMapper bankBranchMapper;
+
+    private final BankServiceMapper bankServiceMapper;
 
     @Transactional
     @Override
     public BankBranchDTO addBankBranch(BankBranchDTO bankBranchDTO, LocationDTO locationDTO) {
-        BankBranch bankBranch = new BankBranch();
-        Location location = new Location();
-        location.setCity(locationDTO.getCity());
-        location.setCountry(locationDTO.getCountry());
-        location.setAddress(locationDTO.getAddress());
-        location.setPostCode(locationDTO.getPostCode());
+        BankBranch bankBranch = bankBranchMapper.toEntity(bankBranchDTO, locationDTO);
 
-        if (locationDTO.getLatitude() != null && locationDTO.getLongitude() != null) {
-            location.setLatitude(locationDTO.getLatitude());
-            location.setLongitude(locationDTO.getLongitude());
-        } else {
+        Location location = bankBranch.getLocation();
+        if (location.getLatitude() == null || location.getLongitude() == null) {
             enrichWithCoordinates(location);
         }
 
-        bankBranch.setBankBranchName(bankBranchDTO.getBankBranchName());
-        bankBranch.setLocation(location);
-        return bankBranchRepository.save(bankBranch).toDTO();
+        bankBranchRepository.save(bankBranch);
+        return bankBranchMapper.toDTO(bankBranch);
     }
 
     @Transactional
@@ -89,7 +86,7 @@ public class BankBranchServiceImpl implements BankBranchService {
             bankBranch.getSchedule().clear();
             for (WorkingHourDTO whDTO : bankBranchDTO.getSchedule()) {
                 WorkingHour wh = new WorkingHour();
-                wh.setDayOfWeek(DayOfWeek.valueOf(whDTO.getDayOfWeek()));
+                wh.setDay(DayOfWeek.valueOf(whDTO.getDayOfWeek()));
                 wh.setOpenTime(LocalTime.parse(whDTO.getOpenTime()));
                 wh.setCloseTime(LocalTime.parse(whDTO.getCloseTime()));
                 bankBranch.getSchedule().add(wh);
@@ -101,18 +98,18 @@ public class BankBranchServiceImpl implements BankBranchService {
                     .map(BankServiceDTO::getId)
                     .toList();
             List<BankService> foundServices = bankServiceRepository.findAllById(serviceIds);
-            bankBranch.setServices(new HashSet<>(foundServices));
+            bankBranch.setBankServices(new HashSet<>(foundServices));
         }
 
         BankBranch saved = bankBranchRepository.save(bankBranch);
-        return saved.toDTO();
+        return bankBranchMapper.toDTO(saved);
     }
 
     @Transactional
     @Override
     public BankBranchDTO getBankBranchById(Long bankBranch_id) {
         BankBranch bankBranch = bankBranchRepository.findById(bankBranch_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Bank Branch not found"));
-        return bankBranch.toDTO();
+        return bankBranchMapper.toDTO(bankBranch);
     }
 
     @Transactional
@@ -163,7 +160,7 @@ public class BankBranchServiceImpl implements BankBranchService {
 
         bankBranchRepository.save(bankBranch);
         bankServiceRepository.save(bankService);
-        return bankBranch.toDTO();
+        return bankBranchMapper.toDTO(bankBranch);
 
     }
 
@@ -188,7 +185,7 @@ public class BankBranchServiceImpl implements BankBranchService {
         Set<BankService> bankServices = bankBranch.getBankServices();
         List<BankServiceDTO> bankServiceDTOs = new ArrayList<>();
         for (BankService bankService : bankServices) {
-            bankServiceDTOs.add(bankService.toDTO());
+            bankServiceDTOs.add(bankServiceMapper.toDTO(bankService));
         }
         return bankServiceDTOs;
     }
@@ -203,7 +200,7 @@ public class BankBranchServiceImpl implements BankBranchService {
         LocalTime checkTime = dateTime.toLocalTime();
 
         return branch.getSchedule().stream()
-                .filter(wh -> wh.getDayOfWeek() == dayOfWeek)
+                .filter(wh -> wh.getDay() == dayOfWeek)
                 .findFirst()
                 .map(wh -> {
                     boolean isOpen = checkTime.isAfter(wh.getOpenTime()) && checkTime.isBefore(wh.getCloseTime());
@@ -227,7 +224,7 @@ public class BankBranchServiceImpl implements BankBranchService {
     private List<BankBranchDTO> getBankBranchDTOs(List<BankBranch> bankBranches) {
         List<BankBranchDTO> bankBranchDTOs = new ArrayList<>();
         for (BankBranch bankBranch : bankBranches) {
-            bankBranchDTOs.add(bankBranch.toDTO());
+            bankBranchDTOs.add(bankBranchMapper.toDTO(bankBranch));
         }
         return bankBranchDTOs;
     }

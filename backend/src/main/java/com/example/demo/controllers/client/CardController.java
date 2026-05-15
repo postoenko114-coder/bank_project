@@ -4,6 +4,7 @@ import com.example.demo.dto.CardDTO;
 import com.example.demo.security.IsOwner;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.card.CardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,17 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/{userId}/cards")
 @IsOwner
+@RequiredArgsConstructor
 public class CardController {
 
     private final CardService cardService;
 
     private final AccountService accountService;
-
-    public CardController(CardService cardService, AccountService accountService) {
-        this.cardService = cardService;
-
-        this.accountService = accountService;
-    }
 
     @GetMapping
     public List<CardDTO> getCards(@PathVariable Long userId) {

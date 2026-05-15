@@ -6,6 +6,7 @@ import com.example.demo.repositories.UserRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -17,18 +18,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Component
+@RequiredArgsConstructor
 public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     @Value("${app.frontend.url}")
     private String frontendUrl;
 
     private final JwtService jwtService;
+
     private final UserRepository userRepository;
 
-    public CustomAuthenticationSuccessHandler(JwtService jwtService, UserRepository userRepository) {
-        this.jwtService = jwtService;
-        this.userRepository = userRepository;
-    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -45,14 +44,14 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         });
 
         if (user.getRoleUser() == RoleUser.ADMIN) {
-            getRedirectStrategy().sendRedirect(request, response, "http://localhost:8080/oauth2/redirect.html?error=" +
+            getRedirectStrategy().sendRedirect(request, response, frontendUrl + "/oauth2/redirect.html?error=" +
                     "Admins+must+use+password+login");
             return;
         }
 
         String jwtToken = jwtService.generateToken(user);
 
-        String targetUrl = UriComponentsBuilder.fromUriString("http://localhost:8080/oauth2/redirect.html")
+        String targetUrl = UriComponentsBuilder.fromUriString(frontendUrl + "/oauth2/redirect.html")
                 .queryParam("token", jwtToken)
                 .build().toUriString();
 

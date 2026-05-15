@@ -2,10 +2,12 @@ package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.AvailabilityResponse;
 import com.example.demo.dto.BankServiceDTO;
+import com.example.demo.mapper.BankServiceMapper;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -17,16 +19,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/services")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminBankServiceController {
 
     private final BankServiceService bankServiceService;
 
     private final BankBranchService bankBranchService;
 
-    public AdminBankServiceController(BankServiceService bankServiceService, BankBranchService bankBranchService) {
-        this.bankServiceService = bankServiceService;
-        this.bankBranchService = bankBranchService;
-    }
+    private final BankServiceMapper bankServiceMapper;
 
     @GetMapping
     public List<BankServiceDTO> getAllBankService() {
@@ -43,7 +43,7 @@ public class AdminBankServiceController {
         List<BankService> bankServices = bankServiceService.findServiceByName(serviceName);
         List<BankServiceDTO> bankServiceDTOs = new ArrayList<>();
         for (BankService bankService : bankServices) {
-            bankServiceDTOs.add(bankService.toDTO());
+            bankServiceDTOs.add(bankServiceMapper.toDTO(bankService));
         }
         return bankServiceDTOs;
     }

@@ -3,6 +3,7 @@ package com.example.demo.unit.controller.admin;
 import com.example.demo.controllers.admin.AdminNotificationController;
 import com.example.demo.dto.notification.NotificationDTOAdmin;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.NotificationMapperImpl;
 import com.example.demo.models.notification.Notification;
 import com.example.demo.models.notification.StatusNotification;
 import com.example.demo.models.notification.TypeNotification;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -25,14 +27,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = {AdminNotificationController.class, GlobalExceptionHandler.class})
 @AutoConfigureMockMvc(addFilters = false)
+@Import(NotificationMapperImpl.class)
 public class AdminNotificationControllerTest {
 
     @Autowired
@@ -143,9 +148,9 @@ public class AdminNotificationControllerTest {
     private Notification buildNotification(Long id, TypeNotification type, String message) {
         Notification n = new Notification();
         n.setId(id);
-        n.setType(type);
+        n.setTypeNotification(type);
         n.setMessage(message);
-        n.setStatus(StatusNotification.NEW);
+        n.setStatusNotification(StatusNotification.NEW);
         n.setCreatedAt(LocalDateTime.now());
         return n;
     }

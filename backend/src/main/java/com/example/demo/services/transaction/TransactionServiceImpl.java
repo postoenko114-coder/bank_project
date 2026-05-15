@@ -3,6 +3,7 @@ package com.example.demo.services.transaction;
 
 import com.example.demo.dto.transaction.TransactionDTO;
 import com.example.demo.dto.transaction.TransactionDTOAdmin;
+import com.example.demo.mapper.TransactionMapper;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.transaction.StatusTransaction;
 import com.example.demo.models.transaction.Transaction;
@@ -11,6 +12,7 @@ import com.example.demo.models.user.User;
 import com.example.demo.repositories.AccountRepository;
 import com.example.demo.repositories.TransactionRepository;
 import com.example.demo.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
@@ -31,12 +34,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     private final UserRepository userRepository;
 
-
-    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountRepository accountRepository,  UserRepository userRepository) {
-        this.transactionRepository = transactionRepository;
-        this.accountRepository = accountRepository;
-        this.userRepository = userRepository;
-    }
+    private final TransactionMapper transactionMapper;
 
     @Transactional
     @Override
@@ -163,8 +161,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public TransactionDTO hideTransaction(Long transaction_id) {
         Transaction transaction = transactionRepository.findById(transaction_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Transaction not found"));
-        transaction.setHidden(true);
-        return transaction.toDTO();
+        transaction.setIsHidden(true);
+        return transactionMapper.toDTO(transaction);
     }
 
     @Transactional
@@ -183,7 +181,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         transaction.setStatusTransaction(StatusTransaction.CANCELLED);
         transactionRepository.save(transaction);
-        return transaction.toDTOAdmin();
+        return transactionMapper.toDTOAdmin(transaction);
 
     }
 

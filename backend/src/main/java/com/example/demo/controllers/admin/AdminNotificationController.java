@@ -1,11 +1,13 @@
 package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.notification.NotificationDTOAdmin;
+import com.example.demo.mapper.NotificationMapper;
 import com.example.demo.models.notification.Notification;
 import com.example.demo.models.notification.TypeNotification;
 import com.example.demo.models.user.User;
 import com.example.demo.services.notification.NotificationService;
 import com.example.demo.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -18,16 +20,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/notifications")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminNotificationController {
 
     private final NotificationService notificationService;
 
     private final UserService userService;
 
-    public AdminNotificationController(NotificationService notificationService, UserService userService) {
-        this.notificationService = notificationService;
-        this.userService = userService;
-    }
+    private final NotificationMapper notificationMapper;
 
     @GetMapping
     public List<NotificationDTOAdmin> getUserNotifications(@PathVariable Long userId, @PageableDefault(size = 10) Pageable pageable) {
@@ -45,13 +45,13 @@ public class AdminNotificationController {
         User user = userService.getUserById(userId);
         Notification notification = notificationService.createNotification(user, TypeNotification.valueOf(typeNotification.toUpperCase()), message);
         notificationService.sendNotificationToClient(user, notification);
-        return notification.toDTOAdmin();
+        return notificationMapper.toDTOAdmin(notification);
     }
 
     private List<NotificationDTOAdmin> getNotifications(List<Notification> notifications) {
         List<NotificationDTOAdmin> list = new ArrayList<>();
         for (Notification notification : notifications) {
-            list.add(notification.toDTOAdmin());
+            list.add(notificationMapper.toDTOAdmin(notification));
         }
         return list;
     }

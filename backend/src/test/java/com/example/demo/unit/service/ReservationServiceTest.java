@@ -1,9 +1,10 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.ReservationDTO;
+import com.example.demo.mapper.ReservationMapper;
+import com.example.demo.mapper.ReservationMapperImpl;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
-import com.example.demo.models.branch.WorkingHour;
 import com.example.demo.models.branch.reservation.Reservation;
 import com.example.demo.models.branch.reservation.StatusReservation;
 import com.example.demo.models.user.User;
@@ -11,21 +12,22 @@ import com.example.demo.repositories.ReservationRepository;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.reservation.ReservationServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.*;
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -46,6 +48,12 @@ public class ReservationServiceTest {
     @InjectMocks
     private ReservationServiceImpl reservationServiceImpl;
 
+    private ReservationMapper reservationMapper = new ReservationMapperImpl();
+
+    @BeforeEach
+    void setUp() {
+        ReflectionTestUtils.setField(reservationServiceImpl, "reservationMapper", reservationMapper);
+    }
 
     @Test
     void addReservation_ShouldReturnReservationDTO_WhenAllConditionsAreMet() {
@@ -75,10 +83,10 @@ public class ReservationServiceTest {
 
         Reservation savedReservation = captor.getValue();
 
-        assertEquals(StatusReservation.ACTIVE, savedReservation.getStatus()); // Убеждаемся, что статус проставился
-        assertEquals(fakeUser, savedReservation.getUser()); // Юзер подтянулся из БД
+        assertEquals(StatusReservation.ACTIVE, savedReservation.getStatus());
+        assertEquals(fakeUser, savedReservation.getUser());
         assertEquals(startTime, savedReservation.getStartReservation());
-        assertNotNull(savedReservation.getEndReservation()); // Конец брони тоже был вычислен и сохранен!
+        assertNotNull(savedReservation.getEndReservation());
     }
 
     @Test

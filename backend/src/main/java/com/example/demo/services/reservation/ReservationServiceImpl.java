@@ -1,6 +1,7 @@
 package com.example.demo.services.reservation;
 
 import com.example.demo.dto.ReservationDTO;
+import com.example.demo.mapper.ReservationMapper;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.models.branch.reservation.Reservation;
@@ -9,18 +10,21 @@ import com.example.demo.models.user.User;
 import com.example.demo.repositories.ReservationRepository;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.bankBranch.BankBranchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
+@RequiredArgsConstructor
 public class ReservationServiceImpl implements ReservationService {
 
     private final ReservationRepository reservationRepository;
@@ -29,11 +33,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     private final BankBranchService bankBranchService;
 
-    public ReservationServiceImpl(ReservationRepository reservationRepository, UserRepository userRepository, BankBranchService bankBranchService, BankBranchService bankBranchService1) {
-        this.reservationRepository = reservationRepository;
-        this.userRepository = userRepository;
-        this.bankBranchService = bankBranchService1;
-    }
+    private ReservationMapper reservationMapper;
 
     @Transactional
     @Override
@@ -68,7 +68,7 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setBankService(bankService);
         reservation.setBankBranch(bankBranch);
         reservationRepository.save(reservation);
-        return reservation.toDTO();
+        return reservationMapper.toDTO(reservation);
     }
 
     @Transactional
@@ -77,7 +77,7 @@ public class ReservationServiceImpl implements ReservationService {
         List<Reservation> reservations = reservationRepository.findAll();
         List<ReservationDTO> dtos = new ArrayList<>();
         for (Reservation reservation : reservations) {
-            dtos.add(reservation.toDTO());
+            dtos.add(reservationMapper.toDTO(reservation));
         }
         return dtos;
     }
@@ -86,7 +86,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public ReservationDTO getReservationById(Long reservation_id){
         Reservation reservation = reservationRepository.findById(reservation_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found"));
-        return reservation.toDTO();
+        return reservationMapper.toDTO(reservation);
     }
 
     @Transactional
@@ -96,7 +96,7 @@ public class ReservationServiceImpl implements ReservationService {
         List<Reservation> reservations = user.getReservations();
         List<ReservationDTO> reservationDTOs = new ArrayList<>();
         for(Reservation reservation : reservations){
-            reservationDTOs.add(reservation.toDTO());
+            reservationDTOs.add(reservationMapper.toDTO(reservation));
         }
         return reservationDTOs;
     }
@@ -106,8 +106,7 @@ public class ReservationServiceImpl implements ReservationService {
     public ReservationDTO cancelReservation(Long reservation_id){
         Reservation reservation = reservationRepository.findById(reservation_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found"));
         reservation.setStatus(StatusReservation.CANCELLED);
-        reservation.toDTO();
-        return null;
+        return reservationMapper.toDTO(reservation);
     }
 
     @Transactional
@@ -115,7 +114,7 @@ public class ReservationServiceImpl implements ReservationService {
     public ReservationDTO completeReservation(Long reservation_id){
         Reservation reservation= reservationRepository.findById(reservation_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found"));
         reservation.setStatus(StatusReservation.COMPLETED);
-        return reservation.toDTO();
+        return reservationMapper.toDTO(reservation);
     }
 
     @Transactional
@@ -127,7 +126,7 @@ public class ReservationServiceImpl implements ReservationService {
         List<Reservation> reservations = reservationRepository.findReservationsByFilters(bankBranch_id, bankService_id, startDay, endDay);
         List<ReservationDTO> reservationDTOs = new ArrayList<>();
         for (Reservation reservation : reservations) {
-            reservationDTOs.add(reservation.toDTO());
+            reservationDTOs.add(reservationMapper.toDTO(reservation));
         }
         return reservationDTOs;
     }

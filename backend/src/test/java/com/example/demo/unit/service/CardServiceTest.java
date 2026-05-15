@@ -1,6 +1,8 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.CardDTO;
+import com.example.demo.mapper.CardMapper;
+import com.example.demo.mapper.CardMapperImpl;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.StatusAccount;
 import com.example.demo.models.card.Card;
@@ -17,13 +19,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +53,9 @@ public class CardServiceTest {
 
     @InjectMocks
     private CardServiceImpl cardServiceImpl;
+
+    @Spy
+    private CardMapper cardMapper = new CardMapperImpl();
 
     @Test
     void createCard_ShouldReturnCardDTO_WhenAccountExistsAndHasNoCard() {

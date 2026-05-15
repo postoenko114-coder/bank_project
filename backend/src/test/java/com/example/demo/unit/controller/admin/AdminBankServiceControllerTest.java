@@ -1,9 +1,9 @@
 package com.example.demo.unit.controller.admin;
 
 import com.example.demo.controllers.admin.AdminBankServiceController;
-import com.example.demo.dto.AvailabilityResponse;
 import com.example.demo.dto.BankServiceDTO;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.BankServiceMapperImpl;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.security.JwtService;
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,7 +27,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -34,6 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = {AdminBankServiceController.class, GlobalExceptionHandler.class})
 @AutoConfigureMockMvc(addFilters = false)
+@Import(BankServiceMapperImpl.class)
 public class AdminBankServiceControllerTest {
 
     @Autowired

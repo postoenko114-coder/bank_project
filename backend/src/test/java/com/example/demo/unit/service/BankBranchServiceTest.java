@@ -3,6 +3,7 @@ package com.example.demo.unit.service;
 import com.example.demo.dto.BankBranchDTO;
 import com.example.demo.dto.BankServiceDTO;
 import com.example.demo.dto.LocationDTO;
+import com.example.demo.mapper.*;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.models.branch.Location;
@@ -10,13 +11,16 @@ import com.example.demo.models.branch.WorkingHour;
 import com.example.demo.repositories.BankBranchRepository;
 import com.example.demo.repositories.BankServiceRepository;
 import com.example.demo.services.bankBranch.BankBranchServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.DayOfWeek;
@@ -39,6 +43,25 @@ public class BankBranchServiceTest {
 
     @InjectMocks
     private BankBranchServiceImpl bankBranchServiceImpl;
+
+    @Spy
+    private BankBranchMapper bankBranchMapper = new BankBranchMapperImpl();
+
+    @Spy
+    private BankServiceMapper bankServiceMapper = new BankServiceMapperImpl();
+
+    @Spy
+    private LocationMapper locationMapper = new LocationMapperImpl();
+
+    @Spy
+    private WorkingHourMapper workingHourMapper = new WorkingHourMapperImpl();
+
+    @BeforeEach
+    void setUp() {
+        ReflectionTestUtils.setField(bankBranchMapper, "locationMapper", locationMapper);
+        ReflectionTestUtils.setField(bankBranchMapper, "bankServiceMapper", bankServiceMapper);
+        ReflectionTestUtils.setField(bankBranchMapper, "workingHourMapper", workingHourMapper);
+    }
 
     @Test
     void addBankBranch_ShouldUseProvidedCoordinates_WhenBothArePresent() {
@@ -99,7 +122,7 @@ public class BankBranchServiceTest {
 
         BankBranch fakeBranch = new BankBranch();
         fakeBranch.setId(1L);
-        fakeBranch.setServices(new HashSet<>());
+        fakeBranch.setBankServices(new HashSet<>());
         fakeBranch.setSchedule(new HashSet<>());
         fakeBranch.setLocation(new Location());
         fakeBranch.setReservations(new ArrayList<>());
@@ -141,7 +164,7 @@ public class BankBranchServiceTest {
     void getBranchById_ShouldReturnBankBranchDTO_WhenBranchExists() {
         BankBranch fakeBranch = new BankBranch();
         fakeBranch.setId(1L);
-        fakeBranch.setServices(new HashSet<>());
+        fakeBranch.setBankServices(new HashSet<>());
         fakeBranch.setSchedule(new HashSet<>());
         fakeBranch.setLocation(new Location());
         fakeBranch.setReservations(new ArrayList<>());
@@ -188,13 +211,13 @@ public class BankBranchServiceTest {
         fakeBankBranch1.setId(1L);
         fakeBankBranch1.setSchedule(new HashSet<>());
         fakeBankBranch1.setLocation(new Location());
-        fakeBankBranch1.setServices(Set.of(fakeService));
+        fakeBankBranch1.setBankServices(Set.of(fakeService));
 
         BankBranch fakeBankBranch2 = new BankBranch();
         fakeBankBranch2.setId(2L);
         fakeBankBranch2.setSchedule(new HashSet<>());
         fakeBankBranch2.setLocation(new Location());
-        fakeBankBranch2.setServices(Set.of(fakeService));
+        fakeBankBranch2.setBankServices(Set.of(fakeService));
 
         List<BankBranch> fakeBankBranchList = new ArrayList<>(List.of(fakeBankBranch1, fakeBankBranch2));
 
@@ -233,7 +256,7 @@ public class BankBranchServiceTest {
         fakeBankBranch1.setId(1L);
         fakeBankBranch1.setSchedule(new HashSet<>());
         fakeBankBranch1.setLocation(fakeLocation);
-        fakeBankBranch1.setServices(new HashSet<>());
+        fakeBankBranch1.setBankServices(new HashSet<>());
 
         List<BankBranch> fakeBankBranchList = new ArrayList<>(List.of(fakeBankBranch1));
 
@@ -287,7 +310,7 @@ public class BankBranchServiceTest {
         fakeBankBranch.setBankBranchName("Central Branch");
         fakeBankBranch.setSchedule(new HashSet<>());
         fakeBankBranch.setLocation(new Location());
-        fakeBankBranch.setServices(new HashSet<>());
+        fakeBankBranch.setBankServices(new HashSet<>());
 
         List<BankBranch> dbResponse = List.of(fakeBankBranch);
 
@@ -314,7 +337,7 @@ public class BankBranchServiceTest {
         fakeBankService.setId(1L);
         fakeBankService.setReservations(new ArrayList<>());
 
-        fakeBankBranch.setServices(new HashSet<>());
+        fakeBankBranch.setBankServices(new HashSet<>());
         fakeBankService.setBankBranches(new HashSet<>());
 
         when(bankServiceRepository.findById(1L)).thenReturn(Optional.of(fakeBankService));
@@ -371,7 +394,7 @@ public class BankBranchServiceTest {
         fakeBankService.setId(1L);
         fakeBankService.setReservations(new ArrayList<>());
 
-        fakeBankBranch.setServices(new HashSet<>(Set.of(fakeBankService)));
+        fakeBankBranch.setBankServices(new HashSet<>(Set.of(fakeBankService)));
         fakeBankService.setBankBranches(new HashSet<>(Set.of(fakeBankBranch)));
 
         when(bankServiceRepository.findById(1L)).thenReturn(Optional.of(fakeBankService));
@@ -429,7 +452,7 @@ public class BankBranchServiceTest {
         fakeBankService.setBankBranches(new HashSet<>(Set.of(fakeBankBranch)));
         fakeBankService.setReservations(new ArrayList<>());
 
-        fakeBankBranch.setServices(Set.of(fakeBankService));
+        fakeBankBranch.setBankServices(Set.of(fakeBankService));
 
         when(bankBranchRepository.findById(1L)).thenReturn(Optional.of(fakeBankBranch));
 
@@ -454,7 +477,7 @@ public class BankBranchServiceTest {
     @Test
     void isBranchOpen_ShouldReturnTrue_WhenBankBranchIsOpenAndExists() {
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(DayOfWeek.MONDAY);
+        workingHour.setDay(DayOfWeek.MONDAY);
         workingHour.setOpenTime(LocalTime.of(1,0,0));
         workingHour.setCloseTime(LocalTime.of(23,0,0));
 
@@ -463,7 +486,7 @@ public class BankBranchServiceTest {
         fakeBankBranch.setBankBranchName("Central Branch");
         fakeBankBranch.setSchedule(Set.of(workingHour));
         fakeBankBranch.setLocation(new Location());
-        fakeBankBranch.setServices(Set.of(new BankService()));
+        fakeBankBranch.setBankServices(Set.of(new BankService()));
 
         LocalDateTime fakeTime = LocalDateTime.of(2027,12,6,10,1);
 
@@ -478,7 +501,7 @@ public class BankBranchServiceTest {
     @Test
     void isBranchOpen_ShouldReturnFalse_WhenBankBranchIsOpenAndExists() {
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(DayOfWeek.MONDAY);
+        workingHour.setDay(DayOfWeek.MONDAY);
         workingHour.setOpenTime(LocalTime.of(1,0,0));
         workingHour.setCloseTime(LocalTime.of(23,0,0));
 
@@ -487,7 +510,7 @@ public class BankBranchServiceTest {
         fakeBankBranch.setBankBranchName("Central Branch");
         fakeBankBranch.setSchedule(Set.of(workingHour));
         fakeBankBranch.setLocation(new Location());
-        fakeBankBranch.setServices(Set.of(new BankService()));
+        fakeBankBranch.setBankServices(Set.of(new BankService()));
 
         LocalDateTime fakeTime = LocalDateTime.of(2027,12,7,10,1);
 
@@ -516,7 +539,7 @@ public class BankBranchServiceTest {
         fakeBankBranch.setBankBranchName("Central Branch");
         fakeBankBranch.setSchedule(new HashSet<>());
         fakeBankBranch.setLocation(new Location());
-        fakeBankBranch.setServices(Set.of(new BankService()));
+        fakeBankBranch.setBankServices(Set.of(new BankService()));
 
         when(bankBranchRepository.findByName(fakeBankBranch.getBankBranchName())).thenReturn(Optional.of(fakeBankBranch));
 
@@ -546,7 +569,7 @@ public class BankBranchServiceTest {
         fakeBankBranch.setBankBranchName("Central Branch");
         fakeBankBranch.setSchedule(new HashSet<>());
         fakeBankBranch.setLocation(new Location());
-        fakeBankBranch.setServices(Set.of(new BankService()));
+        fakeBankBranch.setBankServices(Set.of(new BankService()));
 
         bankBranchServiceImpl.deleteBankBranch(fakeBankBranch.getId());
         verify(bankBranchRepository, times(1)).deleteById(fakeBankBranch.getId());

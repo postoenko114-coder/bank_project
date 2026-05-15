@@ -1,6 +1,7 @@
 package com.example.demo.services.card;
 
 import com.example.demo.dto.CardDTO;
+import com.example.demo.mapper.CardMapper;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.StatusAccount;
 import com.example.demo.models.card.Card;
@@ -12,6 +13,7 @@ import com.example.demo.repositories.CardRepository;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.notification.NotificationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
+@RequiredArgsConstructor
 public class CardServiceImpl implements CardService {
 
     private final AccountService accountService;
@@ -36,13 +39,7 @@ public class CardServiceImpl implements CardService {
 
     private final NotificationService notificationService;
 
-    public CardServiceImpl(AccountService accountService, AccountRepository accountRepository, CardRepository cardRepository, UserRepository userRepository, NotificationService notificationService) {
-        this.accountService = accountService;
-        this.accountRepository = accountRepository;
-        this.cardRepository = cardRepository;
-        this.userRepository = userRepository;
-        this.notificationService = notificationService;
-    }
+    private final CardMapper cardMapper;
 
     @Transactional
     @Override
@@ -61,7 +58,7 @@ public class CardServiceImpl implements CardService {
         card.setUser(account.getUser());
         account.setCard(card);
         cardRepository.save(card);
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
@@ -71,7 +68,7 @@ public class CardServiceImpl implements CardService {
         List<Card> cards = user.getCards();
         List<CardDTO> cardDTOs = new ArrayList<>();
         for (Card card : cards) {
-            cardDTOs.add(card.toDTO());
+            cardDTOs.add(cardMapper.toDTO(card));
         }
         return cardDTOs;
     }
@@ -80,14 +77,14 @@ public class CardServiceImpl implements CardService {
     @Override
     public CardDTO getCardById(Long card_id) {
         Card card = cardRepository.findById(card_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Card not found"));
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
     @Override
     public CardDTO findCardByNumber(String cardNumber) {
         Card card = cardRepository.findByCardNumber(cardNumber).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Card not found"));
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
@@ -100,7 +97,7 @@ public class CardServiceImpl implements CardService {
             card.setStatusCard(StatusCard.BLOCKED);
             notificationService.notifyPersonalMessage(card.getUser().getId(), "Your card " + card.getCardNumber() + " has been blocked");
         }
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
@@ -113,7 +110,7 @@ public class CardServiceImpl implements CardService {
             card.setStatusCard(StatusCard.CLOSED);
             notificationService.notifyPersonalMessage(card.getUser().getId(), "Your card " + card.getCardNumber() + " has been closed");
         }
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
@@ -126,7 +123,7 @@ public class CardServiceImpl implements CardService {
             card.setStatusCard(StatusCard.ACTIVE);
             notificationService.notifyPersonalMessage(card.getUser().getId(), "Your card " + card.getCardNumber() + " has been activated");
         }
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional
@@ -138,7 +135,7 @@ public class CardServiceImpl implements CardService {
         } else if (card.getTypeCard() == TypeCard.CREDIT) {
             card.setTypeCard(TypeCard.DEBIT);
         }
-        return card.toDTO();
+        return cardMapper.toDTO(card);
     }
 
     @Transactional

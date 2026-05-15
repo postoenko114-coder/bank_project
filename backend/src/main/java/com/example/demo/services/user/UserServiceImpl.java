@@ -3,50 +3,46 @@ package com.example.demo.services.user;
 import com.example.demo.dto.user.UserCreateDTO;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserDTOAdmin;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.models.user.RoleUser;
 import com.example.demo.models.user.User;
 import com.example.demo.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository,  PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+    private final UserMapper userMapper;
 
     @Transactional
     @Override
-    public UserDTOAdmin createUser(UserCreateDTO createDTO){
-        User user = new User();
-        if(userRepository.findByUsername(createDTO.getUsername()).isPresent()){
+    public UserDTOAdmin createUser(UserCreateDTO createDTO) {
+        if (userRepository.findByUsername(createDTO.getUsername()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already exists");
-        }else {
-            user.setUsername(createDTO.getUsername());
         }
-        if(userRepository.findByEmail(createDTO.getEmail()).isPresent()){
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already using");
-        }else{
-            user.setEmail(createDTO.getEmail());
+        if (userRepository.findByEmail(createDTO.getEmail()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already in use");
         }
+
+        User user = userMapper.toEntity(createDTO);
+
         user.setPassword(passwordEncoder.encode(createDTO.getPassword()));
-        user.setRoleUser(RoleUser.valueOf(createDTO.getRoleUser()));
-        user.setCreatedAt(LocalDateTime.now());
+
         userRepository.save(user);
-        return user.toDTOAdmin();
+        return userMapper.toDTOAdmin(user);
     }
 
 
@@ -63,7 +59,7 @@ public class UserServiceImpl implements UserService {
         List<User> users = userRepository.findAll();
         List<UserDTOAdmin> userDTOAdmins = new ArrayList<>();
         for(User user : users){
-            userDTOAdmins.add(user.toDTOAdmin());
+            userDTOAdmins.add(userMapper.toDTOAdmin(user));
         }
         return userDTOAdmins;
     }
@@ -77,7 +73,7 @@ public class UserServiceImpl implements UserService {
         List<User> users = userRepository.findByEmailOrUsernameOrId(query);
         List<UserDTOAdmin> userDTOAdmins = new ArrayList<>();
         for(User user : users){
-            userDTOAdmins.add(user.toDTOAdmin());
+            userDTOAdmins.add(userMapper.toDTOAdmin(user));
         }
         return userDTOAdmins;
     }
@@ -113,7 +109,7 @@ public class UserServiceImpl implements UserService {
         if(!userDTO.getEmail().equals(user.getEmail())){
             user.setEmail(userDTO.getEmail());
         }
-        return user.toDTO();
+        return userMapper.toDTO(user);
     }
 
     @Transactional
@@ -121,7 +117,7 @@ public class UserServiceImpl implements UserService {
     public UserDTOAdmin changeRole(Long user_id, String role){
         User user = userRepository.findById(user_id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"User not found"));
         user.setRoleUser(RoleUser.valueOf(role.toUpperCase()));
-        return user.toDTOAdmin();
+        return userMapper.toDTOAdmin(user);
     }
 
     @Transactional
@@ -132,7 +128,7 @@ public class UserServiceImpl implements UserService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Old Password not match");
         }
         user.setPassword(passwordEncoder.encode(newPassword));
-        return user.toDTO();
+        return userMapper.toDTO(user);
     }
 
     @Transactional

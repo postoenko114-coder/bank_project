@@ -7,6 +7,7 @@ import com.example.demo.security.IsOwner;
 import com.example.demo.services.bankBranch.BankBranchService;
 import com.example.demo.services.bankService.BankServiceService;
 import com.example.demo.services.reservation.ReservationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/{userId}/reservations")
 @IsOwner
+@RequiredArgsConstructor
 public class ReservationController {
 
     private final ReservationService reservationService;
@@ -23,12 +25,6 @@ public class ReservationController {
     private final BankServiceService bankServiceService;
 
     private final BankBranchService bankBranchService;
-
-    public ReservationController(ReservationService reservationService, BankServiceService bankServiceService, BankBranchService bankBranchService) {
-        this.reservationService = reservationService;
-        this.bankServiceService = bankServiceService;
-        this.bankBranchService = bankBranchService;
-    }
 
     @GetMapping
     public List<ReservationDTO> getReservations(@PathVariable Long userId) {

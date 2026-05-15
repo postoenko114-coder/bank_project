@@ -3,6 +3,7 @@ package com.example.demo.controllers.admin;
 import com.example.demo.dto.CardDTO;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.card.CardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,16 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/{userId}/cards")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminCardController {
 
     private final CardService cardService;
 
     private final AccountService accountService;
-
-    public AdminCardController(CardService cardService, AccountService accountService) {
-        this.cardService = cardService;
-        this.accountService = accountService;
-    }
 
     @GetMapping
     public List<CardDTO> getUserCards(@PathVariable Long userId) {

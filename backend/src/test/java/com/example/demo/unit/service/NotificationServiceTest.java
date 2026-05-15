@@ -1,6 +1,8 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.notification.NotificationDTOAdmin;
+import com.example.demo.mapper.NotificationMapper;
+import com.example.demo.mapper.NotificationMapperImpl;
 import com.example.demo.models.account.Account;
 import com.example.demo.models.account.CurrencyAccount;
 import com.example.demo.models.notification.Notification;
@@ -14,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -25,7 +28,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,6 +47,9 @@ public class NotificationServiceTest {
     @InjectMocks
     private NotificationServiceImpl notificationServiceImpl;
 
+    @Spy
+    private NotificationMapper notificationMapper = new NotificationMapperImpl();
+
     @Test
     void createNotification_ShouldReturnNotification_WhenDataIsCorrect() {
         User fakeUser = new User();
@@ -54,9 +61,9 @@ public class NotificationServiceTest {
         Notification result = notificationServiceImpl.createNotification(fakeUser, TypeNotification.PERSONAL, "Test message");
 
         assertNotNull(result);
-        assertEquals(TypeNotification.PERSONAL, result.getType());
+        assertEquals(TypeNotification.PERSONAL, result.getTypeNotification());
         assertEquals("Test message", result.getMessage());
-        assertEquals(StatusNotification.NEW, result.getStatus());
+        assertEquals(StatusNotification.NEW, result.getStatusNotification());
         verify(notificationRepository, times(1)).save(any(Notification.class));
     }
 
@@ -65,16 +72,16 @@ public class NotificationServiceTest {
     void getNotificationByIdAndMarkAsRead_ShouldReturnNotificationAndMarkAsRead_WhenNotificationExists() {
         Notification fakeNotification = new Notification();
         fakeNotification.setId(1L);
-        fakeNotification.setStatus(StatusNotification.SENT);
+        fakeNotification.setStatusNotification(StatusNotification.SENT);
         fakeNotification.setMessage("Test");
-        fakeNotification.setType(TypeNotification.PERSONAL);
+        fakeNotification.setTypeNotification(TypeNotification.PERSONAL);
 
         when(notificationRepository.findById(1L)).thenReturn(Optional.of(fakeNotification));
 
         Notification result = notificationServiceImpl.getNotificationByIdAndMarkAsRead(1L);
 
         assertNotNull(result);
-        assertEquals(StatusNotification.READ, result.getStatus());
+        assertEquals(StatusNotification.READ, result.getStatusNotification());
         verify(notificationRepository, times(1)).findById(1L);
     }
 
@@ -93,7 +100,7 @@ public class NotificationServiceTest {
     void updateNotification_ShouldReturnUpdatedNotification_WhenNotificationExistsAndDataChanged() {
         Notification fakeNotification = new Notification();
         fakeNotification.setId(1L);
-        fakeNotification.setType(TypeNotification.PERSONAL);
+        fakeNotification.setTypeNotification(TypeNotification.PERSONAL);
         fakeNotification.setMessage("Old message");
 
         when(notificationRepository.findById(1L)).thenReturn(Optional.of(fakeNotification));
@@ -101,7 +108,7 @@ public class NotificationServiceTest {
         Notification result = notificationServiceImpl.updateNotification(1L, "DEPOSIT", "New message");
 
         assertNotNull(result);
-        assertEquals(TypeNotification.DEPOSIT, result.getType());
+        assertEquals(TypeNotification.DEPOSIT, result.getTypeNotification());
         assertEquals("New message", result.getMessage());
         verify(notificationRepository, times(1)).findById(1L);
     }
@@ -110,7 +117,7 @@ public class NotificationServiceTest {
     void updateNotification_ShouldReturnSameNotification_WhenNothingChanged() {
         Notification fakeNotification = new Notification();
         fakeNotification.setId(1L);
-        fakeNotification.setType(TypeNotification.PERSONAL);
+        fakeNotification.setTypeNotification(TypeNotification.PERSONAL);
         fakeNotification.setMessage("Same message");
 
         when(notificationRepository.findById(1L)).thenReturn(Optional.of(fakeNotification));
@@ -118,7 +125,7 @@ public class NotificationServiceTest {
         Notification result = notificationServiceImpl.updateNotification(1L, "PERSONAL", "Same message");
 
         assertNotNull(result);
-        assertEquals(TypeNotification.PERSONAL, result.getType());
+        assertEquals(TypeNotification.PERSONAL, result.getTypeNotification());
         assertEquals("Same message", result.getMessage());
     }
 
@@ -137,8 +144,8 @@ public class NotificationServiceTest {
     void getNotificationForAdmin_ShouldReturnNotificationDTOAdmin_WhenNotificationExists() {
         Notification fakeNotification = new Notification();
         fakeNotification.setId(1L);
-        fakeNotification.setType(TypeNotification.PERSONAL);
-        fakeNotification.setStatus(StatusNotification.NEW);
+        fakeNotification.setTypeNotification(TypeNotification.PERSONAL);
+        fakeNotification.setStatusNotification(StatusNotification.NEW);
         fakeNotification.setMessage("Test");
 
         when(notificationRepository.findById(1L)).thenReturn(Optional.of(fakeNotification));

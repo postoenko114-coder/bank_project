@@ -1,6 +1,8 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.support.SupportDTO;
+import com.example.demo.mapper.SupportMapper;
+import com.example.demo.mapper.SupportMapperImpl;
 import com.example.demo.models.supportMessage.StatusSupportMessage;
 import com.example.demo.models.supportMessage.SupportMessage;
 import com.example.demo.models.user.User;
@@ -12,10 +14,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
-
 
 import java.security.Principal;
 import java.time.LocalDate;
@@ -41,6 +43,10 @@ public class SupportMessageServiceTest {
     @InjectMocks
     private SupportMessageServiceImpl supportMessageServiceImpl;
 
+    @Spy
+    private SupportMapper supportMapper = new SupportMapperImpl();
+
+
     @Test
     void createSupportMessage_ShouldReturnSupportDTO_WhenPrincipalIsNotNull() {
         Principal principal = mock(Principal.class);
@@ -55,7 +61,6 @@ public class SupportMessageServiceTest {
         dto.setSubject("Test");
 
         when(principal.getName()).thenReturn("test@gmail.com");
-        when(userService.findUserByEmail(userEmail)).thenReturn(fakeUser);
 
         SupportDTO result = supportMessageServiceImpl.createSupportMessage(dto, principal);
 
@@ -64,7 +69,6 @@ public class SupportMessageServiceTest {
         assertEquals(dto.getSubject(), result.getSubject());
         assertEquals(fakeUser.getEmail(), result.getUserEmail());
 
-        verify(userService, times(1)).findUserByEmail(userEmail);
         verify(principal, times(1)).getName();
     }
 

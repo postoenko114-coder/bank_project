@@ -1,6 +1,8 @@
 package com.example.demo.unit.service;
 
 import com.example.demo.dto.BankServiceDTO;
+import com.example.demo.mapper.BankServiceMapper;
+import com.example.demo.mapper.BankServiceMapperImpl;
 import com.example.demo.models.branch.BankBranch;
 import com.example.demo.models.branch.BankService;
 import com.example.demo.models.branch.WorkingHour;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -42,7 +45,8 @@ public class BankServiceServiceTest {
     @InjectMocks
     private BankServiceServiceImpl bankServiceServiceImpl;
 
-    // ───── addService ─────
+    @Spy
+    private BankServiceMapper bankServiceMapper = new BankServiceMapperImpl();
 
     @Test
     void addService_ShouldReturnBankServiceDTO_WhenDataIsCorrect() {
@@ -60,8 +64,6 @@ public class BankServiceServiceTest {
         assertEquals("30 min", result.getDuration());
         verify(bankServiceRepository, times(1)).save(any(BankService.class));
     }
-
-    // ───── getServiceById ─────
 
     @Test
     void getServiceById_ShouldReturnBankServiceDTO_WhenServiceExists() {
@@ -91,8 +93,6 @@ public class BankServiceServiceTest {
         assertEquals("Bank Service Not Found", exception.getReason());
     }
 
-    // ───── getServicesList ─────
-
     @Test
     void getServicesList_ShouldReturnAllServicesAsDTOs() {
         BankService service1 = new BankService();
@@ -115,8 +115,6 @@ public class BankServiceServiceTest {
         verify(bankServiceRepository, times(1)).findAll();
     }
 
-    // ───── findServiceByName ─────
-
     @Test
     void findServiceByName_ShouldReturnBankServiceList_WhenServicesExist() {
         BankService fakeService = new BankService();
@@ -130,8 +128,6 @@ public class BankServiceServiceTest {
         assertEquals("Loan", result.get(0).getBankServiceName());
         verify(bankServiceRepository, times(1)).findByBankServiceName("Loan");
     }
-
-    // ───── updateService ─────
 
     @Test
     void updateService_ShouldReturnUpdatedDTO_WhenServiceExistsAndDataChanged() {
@@ -191,8 +187,6 @@ public class BankServiceServiceTest {
         assertEquals("Bank Service Not Found", exception.getReason());
     }
 
-    // ───── deleteService ─────
-
     @Test
     void deleteService_ShouldCallRepositoryDelete() {
         bankServiceServiceImpl.deleteService(1L);
@@ -200,15 +194,13 @@ public class BankServiceServiceTest {
         verify(bankServiceRepository, times(1)).deleteById(1L);
     }
 
-    // ───── getAvailabilityServiceByDate ─────
-
     @Test
     void getAvailabilityServiceByDate_ShouldReturnTrue_WhenBranchIsOpenAndSlotsAvailable() {
         LocalDate date = LocalDate.now().plusDays(1);
         DayOfWeek dayOfWeek = date.getDayOfWeek();
 
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(dayOfWeek);
+        workingHour.setDay(dayOfWeek);
 
         BankBranch fakeBranch = new BankBranch();
         fakeBranch.setId(1L);
@@ -234,7 +226,7 @@ public class BankServiceServiceTest {
         DayOfWeek dayOfWeek = date.getDayOfWeek();
 
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(dayOfWeek);
+        workingHour.setDay(dayOfWeek);
 
         BankBranch fakeBranch = new BankBranch();
         fakeBranch.setId(1L);
@@ -257,7 +249,7 @@ public class BankServiceServiceTest {
         LocalDate date = LocalDate.of(2025, 1, 6); // Monday
 
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(DayOfWeek.SATURDAY); // branch only open on Saturday
+        workingHour.setDay(DayOfWeek.SATURDAY); // branch only open on Saturday
 
         BankBranch fakeBranch = new BankBranch();
         fakeBranch.setId(1L);
@@ -298,7 +290,7 @@ public class BankServiceServiceTest {
     @Test
     void getAvailabilityServiceByDate_ShouldThrowNotFound_WhenServiceDoesNotExist() {
         WorkingHour workingHour = new WorkingHour();
-        workingHour.setDayOfWeek(DayOfWeek.MONDAY);
+        workingHour.setDay(DayOfWeek.MONDAY);
         workingHour.setOpenTime(LocalTime.of(1, 1));
         workingHour.setCloseTime(LocalTime.of(23, 23));
 

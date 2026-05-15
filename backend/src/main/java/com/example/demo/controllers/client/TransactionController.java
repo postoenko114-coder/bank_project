@@ -1,9 +1,11 @@
 package com.example.demo.controllers.client;
 
 import com.example.demo.dto.transaction.TransactionDTO;
+import com.example.demo.mapper.TransactionMapper;
 import com.example.demo.models.transaction.Transaction;
 import com.example.demo.security.IsOwner;
 import com.example.demo.services.transaction.TransactionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,13 +21,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/{userId}/transactions")
 @IsOwner
+@RequiredArgsConstructor
 public class TransactionController {
 
     private final TransactionService transactionService;
 
-    public TransactionController(TransactionService transactionService) {
-        this.transactionService = transactionService;
-    }
+    private final TransactionMapper transactionMapper;
 
     @GetMapping
     public List<TransactionDTO> getUserTransactions(@PathVariable Long userId, @PageableDefault(size = 10) Pageable pageable) {
@@ -42,10 +43,10 @@ public class TransactionController {
     @GetMapping("/{transactionId}")
     public TransactionDTO getTransaction(@PathVariable Long userId, @PathVariable Long transactionId) {
         Transaction transaction = transactionService.getTransactionById(transactionId);
-        if (transaction.getHidden()) {
+        if (transaction.getIsHidden()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Transaction is hidden");
         }
-        return transaction.toDTO();
+        return transactionMapper.toDTO(transaction);
     }
 
     @GetMapping("/filter/date")
@@ -81,8 +82,8 @@ public class TransactionController {
     private List<TransactionDTO> getTransactionDTOs(List<Transaction> transactions) {
         List<TransactionDTO> transactionDTOs = new ArrayList<>();
         for (Transaction transaction : transactions) {
-            if (!transaction.getHidden()) {
-                transactionDTOs.add(transaction.toDTO());
+            if (!transaction.getIsHidden()) {
+                transactionDTOs.add(transactionMapper.toDTO(transaction));
             }
         }
         return transactionDTOs;

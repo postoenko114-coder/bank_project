@@ -4,6 +4,7 @@ import com.example.demo.controllers.AuthController;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserLogin;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.UserMapperImpl;
 import com.example.demo.models.user.RoleUser;
 import com.example.demo.models.user.User;
 import com.example.demo.security.AuthenticationService;
@@ -14,16 +15,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.Collection;
-import java.util.List;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,7 +28,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = {AuthController.class, GlobalExceptionHandler.class})
-@AutoConfigureMockMvc(addFilters = false) // Отключаем реальные фильтры Security, так как мы тестируем только логику контроллера
+@AutoConfigureMockMvc(addFilters = false)
+@Import(UserMapperImpl.class)
 class AuthControllerTest {
 
     @Autowired
@@ -102,7 +99,7 @@ class AuthControllerTest {
                         .content(objectMapper.writeValueAsString(loginReq)))
 
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.redirectUrl").value("/dashboard.html"));
+                .andExpect(jsonPath("$.targetUrl").value("/dashboard.html"));
     }
 
     @Test
@@ -120,7 +117,7 @@ class AuthControllerTest {
                         .content(objectMapper.writeValueAsString(loginReq)))
 
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.redirectUrl").value("/admin.html"));
+                .andExpect(jsonPath("$.targetUrl").value("/admin.html"));
     }
 
     @Test

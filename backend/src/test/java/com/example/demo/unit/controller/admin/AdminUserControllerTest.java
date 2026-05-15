@@ -5,6 +5,7 @@ import com.example.demo.dto.user.UserCreateDTO;
 import com.example.demo.dto.user.UserDTO;
 import com.example.demo.dto.user.UserDTOAdmin;
 import com.example.demo.exception.GlobalExceptionHandler;
+import com.example.demo.mapper.UserMapperImpl;
 import com.example.demo.models.user.RoleUser;
 import com.example.demo.models.user.User;
 import com.example.demo.security.JwtService;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,7 +28,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -34,6 +37,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = {AdminUserController.class, GlobalExceptionHandler.class})
 @AutoConfigureMockMvc(addFilters = false)
+@Import(UserMapperImpl.class)
 public class AdminUserControllerTest {
 
     @Autowired
@@ -54,8 +58,8 @@ public class AdminUserControllerTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     void getUsers_ShouldReturnUserDTOAdminList() throws Exception {
-        UserDTOAdmin u1 = new UserDTOAdmin(1L, "alex", "alex@gmail.com", RoleUser.CLIENT, LocalDateTime.now());
-        UserDTOAdmin u2 = new UserDTOAdmin(2L, "maria", "maria@gmail.com", RoleUser.CLIENT, LocalDateTime.now());
+        UserDTOAdmin u1 = new UserDTOAdmin(1L, "alex", "1111111111", "alex@gmail.com", LocalDateTime.now(), RoleUser.CLIENT);
+        UserDTOAdmin u2 = new UserDTOAdmin(2L, "maria", "maria@gmail.com", "111111111", LocalDateTime.now(), RoleUser.CLIENT);
 
         when(userService.getAllUsers()).thenReturn(List.of(u1, u2));
 
@@ -97,7 +101,7 @@ public class AdminUserControllerTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     void searchUser_ShouldReturnMatchingUsers() throws Exception {
-        UserDTOAdmin u1 = new UserDTOAdmin(1L, "alex", "alex@gmail.com", RoleUser.CLIENT, LocalDateTime.now());
+        UserDTOAdmin u1 = new UserDTOAdmin(1L, "alex", "alex@gmail.com", "111111111",LocalDateTime.now(), RoleUser.CLIENT);
 
         when(userService.searchUsers("alex")).thenReturn(List.of(u1));
 
@@ -114,7 +118,7 @@ public class AdminUserControllerTest {
     void createUser_ShouldReturnUserDTOAdmin_WhenDataIsValid() throws Exception {
         UserCreateDTO createDTO = new UserCreateDTO("alex", "alex@gmail.com", "password123", "CLIENT");
 
-        UserDTOAdmin fakeResult = new UserDTOAdmin(1L, "alex", "alex@gmail.com", RoleUser.CLIENT, LocalDateTime.now());
+        UserDTOAdmin fakeResult = new UserDTOAdmin(1L, "alex", "alex@gmail.com", "1111111111", LocalDateTime.now(), RoleUser.CLIENT);
 
         when(userService.createUser(any(UserCreateDTO.class))).thenReturn(fakeResult);
 
@@ -169,7 +173,7 @@ public class AdminUserControllerTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     void changeRoleUser_ShouldReturnUserDTOAdmin_WhenUserExists() throws Exception {
-        UserDTOAdmin fakeResult = new UserDTOAdmin(1L, "alex", "alex@gmail.com", RoleUser.ADMIN, LocalDateTime.now());
+        UserDTOAdmin fakeResult = new UserDTOAdmin(1L, "alex", "alex@gmail.com", "111111111", LocalDateTime.now(), RoleUser.ADMIN);
 
         when(userService.changeRole(1L, "admin")).thenReturn(fakeResult);
 

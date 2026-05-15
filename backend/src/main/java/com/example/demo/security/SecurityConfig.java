@@ -5,6 +5,8 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -34,6 +36,7 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     private final CustomAuthenticationSuccessHandler authenticationSuccessHandler;
@@ -44,13 +47,9 @@ public class SecurityConfig {
 
     private final HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository;
 
-    public SecurityConfig(CustomAuthenticationSuccessHandler authenticationSuccessHandler, JwtAuthenticationFilter jwtAuthFilter, UserDetailsService userDetailsService, HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository) {
-        this.authenticationSuccessHandler = authenticationSuccessHandler;
-        this.jwtAuthFilter = jwtAuthFilter;
-        this.userDetailsService = userDetailsService;
-        this.cookieAuthorizationRequestRepository = cookieAuthorizationRequestRepository;
+    @Value("${app.frontend.url}")
+    private String frontendUrl;
 
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -88,7 +87,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:63342", "http://127.0.0.1:63342"));
+        configuration.setAllowedOrigins(Arrays.asList(frontendUrl, "http://127.0.0.1:63342"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Cache-Control"));
         configuration.setAllowCredentials(true);

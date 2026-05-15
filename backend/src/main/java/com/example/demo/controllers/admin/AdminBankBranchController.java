@@ -2,6 +2,7 @@ package com.example.demo.controllers.admin;
 
 import com.example.demo.dto.BankBranchDTO;
 import com.example.demo.services.bankBranch.BankBranchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/branches")
 @PreAuthorize("hasRole('ADMIN')")
+@RequiredArgsConstructor
 public class AdminBankBranchController {
 
     private final BankBranchService bankBranchService ;
-
-    public AdminBankBranchController(BankBranchService bankBranchService) {
-        this.bankBranchService = bankBranchService;
-    }
 
     @GetMapping
     public List<BankBranchDTO> getAllBankBranches() {
