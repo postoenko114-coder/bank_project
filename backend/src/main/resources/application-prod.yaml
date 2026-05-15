@@ -9,6 +9,11 @@ spring:
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
+  flyway:
+    default-schema: public
+    schemas: public
+    clean-disabled: true
+
   jpa:
     hibernate:
       ddl-auto: validate
