@@ -4,212 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Changed some file paths">
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Changed stack">
       <change afterPath="$PROJECT_DIR$/backend/.github/workflows/backend-ci.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/AccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/BankBranchMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/BankServiceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/CardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/LocationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/NotificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/ReservationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/SupportMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/TransactionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/mapper/WorkingHourMapper.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-test.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__Init_DB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankBranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankBranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/BankServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/SupportMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/SupportMessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankBranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankBranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminBankServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminNotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminNotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminSupportMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminSupportMessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminTransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/admin/AdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controllers/client/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AccountDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/AuthenticationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankBranchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankBranchDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankServiceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/BankServiceDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/CardDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/LocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/LocationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/ReservationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/TransferDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/TransferDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/WorkingHourDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/WorkingHourDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/notification/NotificationDTOAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/support/SupportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/support/SupportDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/transaction/TransactionDTOAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOForClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserDTOForClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dto/user/UserLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/account/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankBranch.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankBranch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/WorkingHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/WorkingHour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/reservation/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/branch/reservation/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/notification/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/notification/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/supportMessage/SupportMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/supportMessage/SupportMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/transaction/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/models/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/CustomAuthenticationSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/account/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/account/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankBranch/BankBranchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankBranch/BankBranchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankService/BankServiceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/bankService/BankServiceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/card/CardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/card/CardServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/notification/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/notification/NotificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/reservation/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/reservation/ReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/supportMessage/SupportMessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/supportMessage/SupportMessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/transaction/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/transaction/TransactionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/services/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/DockerSanityCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/integration/controller/AuthIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/integration/controller/AuthIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/AuthControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/BankServiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/BankServiceControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminAccountControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminAccountControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminUserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/admin/AdminUserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/NotificationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/NotificationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/TransactionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/controller/client/TransactionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/AccountServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/AccountServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankBranchServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankBranchServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/BankServiceServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/CardServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/CardServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/NotificationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/NotificationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/ReservationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/ReservationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/SupportMessageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/SupportMessageServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/TransactionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/TransactionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/example/demo/unit/service/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/config/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankBranchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/BankServiceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/SupportMessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankBranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankBranchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminBankServiceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminCardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminNotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminNotificationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminSupportMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminSupportMessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminTransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminTransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/admin/AdminUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/CardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/NotificationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/controllers/client/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AccountDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AccountDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AuthenticationResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AuthenticationResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/AvailabilityResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankBranchDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankBranchDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankServiceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/BankServiceDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/CardDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/CardDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/LocationDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/ReservationDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/TransferDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/WorkingHourDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/notification/NotificationDTOAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/support/SupportDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/support/SupportDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/transaction/TransactionDTOAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserCreateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserCreateDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOForClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserDTOForClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/dto/user/UserLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/account/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankBranch.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankBranch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/BankService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/WorkingHour.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/WorkingHour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/reservation/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/branch/reservation/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/card/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/card/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/notification/Notification.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/notification/Notification.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/supportMessage/SupportMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/supportMessage/SupportMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/transaction/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/transaction/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/models/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/AuthenticationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/CustomAuthenticationSuccessHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/UserSecurity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/account/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/account/AccountServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankBranch/BankBranchServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankBranch/BankBranchServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankService/BankServiceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/bankService/BankServiceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/card/CardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/card/CardServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/notification/NotificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/notification/NotificationServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/reservation/ReservationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/reservation/ReservationServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/supportMessage/SupportMessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/supportMessage/SupportMessageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/transaction/TransactionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/transaction/TransactionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/services/user/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/AuthIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/AuthIntegrationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/TransferIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/integration/controller/TransferIntegrationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/AuthControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/AuthControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/BankServiceControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/BankServiceControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminAccountControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminAccountControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankBranchControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminBankServiceControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminNotificationControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminSupportMessageControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminTransactionControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminUserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/admin/AdminUserControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/NotificationControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/NotificationControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/TransactionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/controller/client/TransactionControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/AccountServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/AccountServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankBranchServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankBranchServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankServiceServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/BankServiceServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/CardServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/CardServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/NotificationServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/NotificationServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/ReservationServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/ReservationServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/SupportMessageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/SupportMessageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/TransactionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/TransactionServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/example/demo/unit/service/UserServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -679,7 +481,7 @@
       <workItem from="1778703546821" duration="4667000" />
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
-      <workItem from="1778842634930" duration="10013000" />
+      <workItem from="1778842634930" duration="10325000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -833,7 +635,39 @@
       <option name="project" value="LOCAL" />
       <updated>1778757087145</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implemented mappers, added lombok">
+      <option name="closed" value="true" />
+      <created>1778852880698</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778852880698</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Changed urls">
+      <option name="closed" value="true" />
+      <created>1778852913154</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1778852913154</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added migration db.">
+      <option name="closed" value="true" />
+      <created>1778852985365</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1778852985365</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changed stack">
+      <option name="closed" value="true" />
+      <created>1778853004446</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1778853004446</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -870,7 +704,11 @@
     <MESSAGE value="Changed redirect url for frontend. Also added exceptionHandling in SecurityConfig" />
     <MESSAGE value="Removed annotation @IsOwner" />
     <MESSAGE value="Changed some file paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed some file paths" />
+    <MESSAGE value="Implemented mappers, added lombok" />
+    <MESSAGE value="Changed urls" />
+    <MESSAGE value="Added migration db." />
+    <MESSAGE value="Changed stack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed stack" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
