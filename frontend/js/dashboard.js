@@ -5,7 +5,7 @@
  */
 
 // Configuration
-const API_BASE = 'http://localhost:8080/api/v1';
+const API_BASE = 'https://emulataion-bank-project-12.onrender.com/api/v1';
 let currentUserId = null;
 let jwtToken = null;
 const PAGE_SIZE = 10;

@@ -21,7 +21,7 @@ async function handleRegister(event) {
     btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating...';
 
     try {
-        const response = await fetch('http://localhost:8080/api/auth/register', {
+        const response = await fetch('https://emulataion-bank-project-12.onrender.com/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password })
