@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -481,7 +475,7 @@
       <workItem from="1778703546821" duration="4667000" />
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
-      <workItem from="1778842634930" duration="21370000" />
+      <workItem from="1778842634930" duration="22242000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -731,7 +725,39 @@
       <option name="project" value="LOCAL" />
       <updated>1778873603466</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="/">
+      <option name="closed" value="true" />
+      <created>1778875313293</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778875313293</updated>
+    </task>
+    <task id="LOCAL-00033" summary="/">
+      <option name="closed" value="true" />
+      <created>1778875345023</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1778875345023</updated>
+    </task>
+    <task id="LOCAL-00034" summary="/">
+      <option name="closed" value="true" />
+      <created>1778875859994</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1778875859994</updated>
+    </task>
+    <task id="LOCAL-00035" summary="/">
+      <option name="closed" value="true" />
+      <created>1778876124945</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1778876124945</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
