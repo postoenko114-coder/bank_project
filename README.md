@@ -22,13 +22,21 @@ This application is a REST API service with a web interface for managing bank ac
 
 ## 🛠 Tech Stack
 
-* **Core:** Java 17, Spring Boot 3.4.1
-* **Database:** PostgresSQL, Hibernate (JPA)
-* **Security:** Spring Security 6, OAuth2 Client, JWT 
-* **Frontend:** Thymeleaf, HTML5, CSS3, JavaScript
-* **Tools:** Docker, Maven
-* **Documentation:** SpringDoc OpenAPI (Swagger)
-* **Unit Tests:** Mockito, JUnit5
-* **Integrations Tests:** TestContainers
+🛠 Tech Stack
+Core: Java 17, Spring Boot 3.4.1
+
+Database & Migrations: PostgreSQL, Hibernate (JPA), Flyway
+
+Mapping & Boilerplate: MapStruct, Lombok
+
+Security: Spring Security 6, OAuth2 Client, JWT
+
+Testing: JUnit 5, Mockito, Testcontainers
+
+CI/CD & DevOps: Docker, GitHub Actions, Maven
+
+API & Documentation: SpringDoc OpenAPI (Swagger)
+
+Frontend: Thymeleaf, HTML5, CSS3, JavaScript
 
   👤 Author: Postoienko Oleksandr
