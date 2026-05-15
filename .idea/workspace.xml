@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Changed stack">
-      <change afterPath="$PROJECT_DIR$/backend/.github/workflows/backend-ci.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" />
-    </list>
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="/" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -481,7 +473,7 @@
       <workItem from="1778703546821" duration="4667000" />
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
-      <workItem from="1778842634930" duration="10325000" />
+      <workItem from="1778842634930" duration="10761000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -667,7 +659,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778853004446</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Configured Spring Profiles">
+      <option name="closed" value="true" />
+      <created>1778853072191</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1778853072191</updated>
+    </task>
+    <task id="LOCAL-00025" summary="/">
+      <option name="closed" value="true" />
+      <created>1778853080733</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1778853080733</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +716,9 @@
     <MESSAGE value="Changed urls" />
     <MESSAGE value="Added migration db." />
     <MESSAGE value="Changed stack" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed stack" />
+    <MESSAGE value="Configured Spring Profiles" />
+    <MESSAGE value="/" />
+    <option name="LAST_COMMIT_MESSAGE" value="/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
