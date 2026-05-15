@@ -141,7 +141,7 @@ function loadPage(pageName, element) {
 
 async function loadUserInfo() {
     try {
-        const response = await authFetch('http://localhost:8080/api/auth/me');
+        const response = await authFetch('https://emulataion-bank-project-12.onrender.com/api/auth/me');
         if (!response || !response.ok) return false;
         const user = await response.json();
         currentUserId = user.id;
@@ -989,7 +989,7 @@ async function loadProfile() {
         // We need both: profile data + hasPassword flag
         const [profileResponse, meResponse] = await Promise.all([
             authFetch(`${API_BASE}/users/${currentUserId}`),
-            authFetch('http://localhost:8080/api/auth/me')
+            authFetch('https://emulataion-bank-project-12.onrender.com/api/auth/me')
         ]);
         if (!profileResponse) return;
         const user = await profileResponse.json();
