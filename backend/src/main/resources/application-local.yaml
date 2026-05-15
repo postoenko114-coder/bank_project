@@ -1,0 +1,27 @@
+app:
+  frontend:
+    url: http://localhost:63342/bank
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_bank
+    username: postgres
+    password: ${LOCAL_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        connection:
+          useUnicode: true
+          characterEncoding: UTF-8
+          charSet: UTF-8

@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15:///bank_db
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    username: test
+    password: test
+
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test-dummy-client-id
+            client-secret: test-dummy-client-secret
+
+  mail:
+    host: localhost
+    port: 3025
+    username: test-mail-user
+    password: test-mail-password
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000
+
+logging:
+  level:
+    org.springframework: WARN
+    com.example.demo: DEBUG
