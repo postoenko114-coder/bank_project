@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/redirect.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/oauth2-redirect.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,11 +247,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\prokop na jave\src\demo\backend\src\main\resources\templates" />
       <recent name="C:\Users\user\Documents\prokop na jave\src\demo\backend" />
       <recent name="C:\Users\user\Documents\prokop na jave\src\demo\frontend" />
       <recent name="C:\Users\user\Downloads\prokop na jave\src\demo\src\main\resources\static\oauth2" />
       <recent name="C:\Users\user\Downloads\prokop na jave\src\demo\src\main\resources\static" />
-      <recent name="C:\Users\user\Downloads\prokop na jave\src\demo\src\main\resources\static\css" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.TransferIntegrationTest">
@@ -476,7 +481,7 @@
       <workItem from="1778703546821" duration="4667000" />
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
-      <workItem from="1778842634930" duration="13880000" />
+      <workItem from="1778842634930" duration="21370000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -710,7 +715,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778863968512</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="/">
+      <option name="closed" value="true" />
+      <created>1778865031319</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1778865031319</updated>
+    </task>
+    <task id="LOCAL-00031" summary="/">
+      <option name="closed" value="true" />
+      <created>1778873603466</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1778873603466</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

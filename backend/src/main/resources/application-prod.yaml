@@ -1,6 +1,7 @@
 app:
   frontend:
     url: https://bank-frontend-l654.onrender.com
+    origin: https://bank-frontend-l654.onrender.com
 
 spring:
   datasource:

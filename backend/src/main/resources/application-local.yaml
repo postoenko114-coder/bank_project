@@ -1,6 +1,7 @@
 app:
   frontend:
     url: http://localhost:63342/bank
+    origin: ${FRONTEND_ORIGIN:http://localhost:63342}
 
 spring:
   datasource:
