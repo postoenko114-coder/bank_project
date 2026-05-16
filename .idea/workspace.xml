@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Added config.js so that the link to the backend changes depending on the context">
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -479,7 +476,7 @@
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
       <workItem from="1778842634930" duration="22866000" />
-      <workItem from="1778923811991" duration="4821000" />
+      <workItem from="1778923811991" duration="6380000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -793,7 +790,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778925636700</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added config.js so that the link to the backend changes depending on the context">
+      <option name="closed" value="true" />
+      <created>1778928930169</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1778928930169</updated>
+    </task>
+    <task id="LOCAL-00041" summary=".">
+      <option name="closed" value="true" />
+      <created>1778929031216</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1778929031216</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -823,7 +836,6 @@
     <MESSAGE value="Change url in js files and seperated front and back" />
     <MESSAGE value="Wrote integration tests with testcontainers." />
     <MESSAGE value="Seperated front and back." />
-    <MESSAGE value="." />
     <MESSAGE value="Fixed path to src" />
     <MESSAGE value="Changed redirect url for frontend. Also added exceptionHandling in SecurityConfig" />
     <MESSAGE value="Removed annotation @IsOwner" />
@@ -836,7 +848,8 @@
     <MESSAGE value="Changed urls" />
     <MESSAGE value="Added @mapping in AccountMapper" />
     <MESSAGE value="Added config.js so that the link to the backend changes depending on the context" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added config.js so that the link to the backend changes depending on the context" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
