@@ -1,5 +1,5 @@
-Bank Emulation
-This application is a REST API service with a web interface for managing bank accounts, transactions, and users.
+Core Bankign Security Project
+This application is a REST API service for managing bank accounts, transactions, and users.
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-green)
@@ -38,5 +38,3 @@ CI/CD & DevOps: Docker, GitHub Actions, Maven
 API & Documentation: SpringDoc OpenAPI (Swagger)
 
 Frontend: Thymeleaf, HTML5, CSS3, JavaScript
-
-  👤 Author: Postoienko Oleksandr
