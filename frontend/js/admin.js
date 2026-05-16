@@ -3,7 +3,7 @@
  * ADMIN DASHBOARD CONTROLLER
  * =========================================================
  */
-const API_BASE = 'https://emulataion-bank-project-12.onrender.com/api/v1/admin';
+const API_BASE = `${API_HOST}/api/v1/admin`;;
 let jwtToken = sessionStorage.getItem('accessToken');
 let currentManageUserId = null;
 let currentManageUsername = null;

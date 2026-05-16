@@ -43,7 +43,7 @@ async function handleLogin(event) {
     try {
         // Backend expects @RequestBody UserLogin { username, password }
         // The "username" field is actually used for email lookup on the backend
-        const response = await fetch(`https://emulataion-bank-project-12.onrender.com/api/auth/login`, {
+        const response = await fetch(`${API_HOST}/api/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: email, password: password })
@@ -55,7 +55,7 @@ async function handleLogin(event) {
 
                 sessionStorage.setItem('accessToken', data.token);
 
-                const meResponse = await fetch('https://emulataion-bank-project-12.onrender.com/api/auth/me', {
+                const meResponse = await fetch(`${API_HOST}/api/auth/me`, {
                     headers: { 'Authorization': 'Bearer ' + data.token }
                 });
 

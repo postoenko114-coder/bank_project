@@ -1,4 +1,4 @@
-const API_BASE = 'https://emulataion-bank-project-12.onrender.com/api/v1';
+const API_BASE = `${API_HOST}/api/v1`;
 
 // === 1. INITIALIZATION ===
 document.addEventListener('DOMContentLoaded', async () => {
