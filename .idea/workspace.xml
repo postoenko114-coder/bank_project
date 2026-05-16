@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Added @mapping in AccountMapper">
-      <change afterPath="$PROJECT_DIR$/frontend/js/config.js" afterDir="false" />
+    <list default="true" id="a454c7ef-32da-4eec-8286-f0d4eede0a6b" name="Changes" comment="Added config.js so that the link to the backend changes depending on the context">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/example/demo/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/static/oauth2/redirect.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/branches.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/branches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/oauth2/redirect.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/oauth2/redirect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -490,7 +479,7 @@
       <workItem from="1778708299044" duration="3380000" />
       <workItem from="1778750912680" duration="29965000" />
       <workItem from="1778842634930" duration="22866000" />
-      <workItem from="1778923811991" duration="1360000" />
+      <workItem from="1778923811991" duration="4821000" />
     </task>
     <task id="LOCAL-00001" summary="Change db">
       <option name="closed" value="true" />
@@ -796,7 +785,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778877505809</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added config.js so that the link to the backend changes depending on the context">
+      <option name="closed" value="true" />
+      <created>1778925636700</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1778925636700</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -814,7 +811,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change db url" />
     <MESSAGE value="There was a DRY violation; I fixed it." />
     <MESSAGE value="Changed the hardcoding of `pageable`" />
     <MESSAGE value="Added a token verification step for each controller to prevent other users from accessing the account" />
@@ -839,7 +835,8 @@
     <MESSAGE value="/" />
     <MESSAGE value="Changed urls" />
     <MESSAGE value="Added @mapping in AccountMapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added @mapping in AccountMapper" />
+    <MESSAGE value="Added config.js so that the link to the backend changes depending on the context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added config.js so that the link to the backend changes depending on the context" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

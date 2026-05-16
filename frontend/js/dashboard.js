@@ -69,6 +69,7 @@ async function authFetch(url, options = {}) {
     }
 
     try {
+        console.log("Пытаюсь отправить запрос на: ", url);
         const response = await fetch(url, { ...options, headers });
         if (response.status === 401 || response.status === 403) {
             logout();
@@ -141,7 +142,7 @@ function loadPage(pageName, element) {
 
 async function loadUserInfo() {
     try {
-        const response = await authFetch('${API_HOST}/api/auth/me');
+        const response = await authFetch(`${API_HOST}/api/auth/me`);
         if (!response || !response.ok) return false;
         const user = await response.json();
         currentUserId = user.id;
@@ -1141,7 +1142,7 @@ async function sendDashboardSupport() {
         const headers = { 'Content-Type': 'application/json' };
         if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        await fetch(`${API_HOST}/api/v1/support`, {
+        await fetch(`${API_BASE}/support`, {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({ userEmail: "", subject: sub, message: msg })
