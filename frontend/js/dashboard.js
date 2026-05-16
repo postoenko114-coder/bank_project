@@ -69,7 +69,6 @@ async function authFetch(url, options = {}) {
     }
 
     try {
-        console.log("Пытаюсь отправить запрос на: ", url);
         const response = await fetch(url, { ...options, headers });
         if (response.status === 401 || response.status === 403) {
             logout();
