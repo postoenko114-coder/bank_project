@@ -94,6 +94,17 @@ After starting the application:
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
 - Health check: `http://localhost:8080/actuator/health`
 
+## Demo Data
+
+Flyway seeds demo data for easier manual testing:
+
+- Admin user: `admin@bank.local`
+- Admin password: `Admin123!`
+- Demo branches: Prague Main Branch, Brno Business Center, Ostrava Client Hub.
+- Demo services: account opening, debit card services, transfer support, mortgage consultation and investment consultation.
+
+These credentials are intended for a public demo environment only.
+
 ## Tests
 
 Run unit and MVC/controller tests:
