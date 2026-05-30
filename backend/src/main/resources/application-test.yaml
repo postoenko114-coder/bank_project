@@ -38,4 +38,4 @@ application:
 logging:
   level:
     org.springframework: WARN
-    com.example.demo: DEBUG
+    com.alex.bank: DEBUG
