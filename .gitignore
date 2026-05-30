@@ -41,5 +41,8 @@ Thumbs.db
 ### Logs ###
 *.log
 
+### Archives / local exports ###
+*.zip
+
 ### Frontend ###
 node_modules/
