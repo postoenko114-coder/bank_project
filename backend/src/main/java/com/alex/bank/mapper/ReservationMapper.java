@@ -11,6 +11,7 @@ public interface ReservationMapper {
     @Mapping(source = "bankService.bankServiceName", target = "serviceName")
     @Mapping(source = "bankBranch.bankBranchName" , target = "branchName")
     @Mapping(source = "user.username" , target = "username")
+    @Mapping(source = "status", target = "statusReservation")
     ReservationDTO toDTO(Reservation reservation);
 
 }
