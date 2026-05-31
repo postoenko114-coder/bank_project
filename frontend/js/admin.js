@@ -508,7 +508,11 @@ async function loadUserTransactions(userId, filters = {}) {
     if (!txs || txs.length === 0) {
         container.innerHTML = toolbar + '<div class="text-center text-muted py-5">No transactions found.</div>';
     } else {
-        let rows = txs.map(t => `<tr style="cursor:pointer"><td><span class="fw-bold">${t.typeTransaction}</span></td><td class="${t.typeTransaction === 'DEPOSIT' ? 'text-success fw-bold' : 'text-danger fw-bold'}">${t.amount}</td><td class="small text-muted font-monospace">${t.accountFrom} <i class="fa-solid fa-arrow-right mx-1"></i> ${t.accountTo}</td><td><span class="status-badge bg-soft-primary">${t.statusTransaction}</span></td><td>${new Date(t.createdAt).toLocaleDateString()} ${new Date(t.createdAt).toLocaleTimeString()}</td></tr>`).join('');
+        let rows = txs.map(t => {
+            const accountFrom = t.accountFrom || '-';
+            const accountTo = t.accountTo || '-';
+            return `<tr style="cursor:pointer"><td><span class="fw-bold">${t.typeTransaction}</span></td><td class="${t.typeTransaction === 'DEPOSIT' ? 'text-success fw-bold' : 'text-danger fw-bold'}">${t.amount}</td><td class="small text-muted font-monospace">${accountFrom} <i class="fa-solid fa-arrow-right mx-1"></i> ${accountTo}</td><td><span class="status-badge bg-soft-primary">${t.statusTransaction}</span></td><td>${new Date(t.createdAt).toLocaleDateString()} ${new Date(t.createdAt).toLocaleTimeString()}</td></tr>`;
+        }).join('');
         renderTable(toolbar, ['Type', 'Amount', 'Flow', 'Status', 'Date'], rows, container);
     }
     if (filters.type) {
