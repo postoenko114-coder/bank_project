@@ -7,6 +7,7 @@
 // Configuration
 const API_BASE = `${API_HOST}/api/v1`;
 let currentUserId = null;
+let currentUserEmail = null;
 let jwtToken = null;
 const PAGE_SIZE = 10;
 
@@ -145,8 +146,13 @@ async function loadUserInfo() {
         if (!response || !response.ok) return false;
         const user = await response.json();
         currentUserId = user.id;
+        currentUserEmail = user.email || null;
 
         document.getElementById('user-name-display').textContent = user.username || "Client";
+        const supportEmailInput = document.getElementById('supp-email');
+        if (supportEmailInput) {
+            supportEmailInput.value = currentUserEmail || '';
+        }
         const avatarContainer = document.getElementById('user-avatar-container');
 
         if (avatarContainer) {
@@ -1144,7 +1150,7 @@ async function sendDashboardSupport() {
         await fetch(`${API_BASE}/support`, {
             method: 'POST',
             headers: headers,
-            body: JSON.stringify({ userEmail: "", subject: sub, message: msg })
+            body: JSON.stringify({ userEmail: currentUserEmail || "", subject: sub, message: msg })
         });
 
         alert("Message sent!");
